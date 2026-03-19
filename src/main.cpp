@@ -26,7 +26,11 @@ String speedString = "0.0";
 void setup()
 {
 
-  pinMode(pin, OUTPUT);
+  ledcSetup(0, 16000, 8); // Channel 0, 5 kHz frequency, 8-bit resolution
+  ledcAttachPin(pin, 0);
+  ledcWrite(0, speed);
+
+  // pinMode(pin, OUTPUT);
 
   Serial.begin(115200); // serielle Schnittstelle initialisieren
   Serial.print("Verbindungsaufbau zu ");
@@ -62,6 +66,9 @@ void setup()
               {
                 speedString = request->getParam(Speed1)->value();
                 speed = speedString.toDouble();
+
+                ledcWrite(0, speed);
+
               }
                request->send(LittleFS, "/index.html"); });
 
@@ -74,5 +81,5 @@ void loop()
 {
   Serial.print("Aktuelle Geschwindigkeit: ");
   Serial.println(speed);
-  analogWrite(pin, speed);
+  // analogWrite(pin, speed);
 }
