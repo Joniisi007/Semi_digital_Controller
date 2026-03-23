@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="de">
+  <script src="logic.js"></script>
+  <link rel="stylesheet" href="trainlist_style.css">
+  <head>
+     <link
+      rel="icon"
+      type="image/x-icon"
+      href="/train_icon.png"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zugliste bearbeiten</title>
+    <a href="index.html">Home</a>
+  </head>
+  <body>
+    <div id="edit" style="display: none; z-index: 2;">
+      <input type="text" id="edit_id" name="edit_id" readonly></input>
+      <input type="text" id="edit_type" name="edit_type"></input>
+      <input type="number" id="edit_speed" name="edit_speed"></input>
+      <button id="Cancel" value="Abbrechen" onclick="off()">Abbrechen</button>
+      <button id="Save" value="Speichern" onclick="off()">Speichern</button>
+      </div>
+    <script>
+        populateTrainList();
+    </script>
+        <table id='Trainlist'>
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>max_speed</th>
+            <th>Functions</th>
+        </tr>
+
+  </body>
+</html>

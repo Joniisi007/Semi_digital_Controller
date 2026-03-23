@@ -2,6 +2,7 @@
 <html lang="de">
   <head>
     <link rel="stylesheet" href="style.css" />
+    <script src="logic.js"></script>
     <link
       rel="icon"
       type="image/x-icon"
@@ -9,12 +10,21 @@
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <input type="button" onclick="Menu()" id="Menu" name="menu" ></input>
+        <div id="MenuContent" hidden="true">
+      <a href="index.html">Home</a>
+      <a href="Trains.html">Züge bearbeiten</a>
+    </div>
     <title>Platten Controller</title>
     <h1>Platten Controller</h1>
   </head>
   <body>
+    <form action="get-trains">
+      <select onchange="getMaxSpeed()" name="trainSelect" id="trainSelect"><option>Lade...</option></select>
+    </form>
     <form action="get">
-        <input name="speed1" type="number" min="-255" max="255" value="0">Speed Controle track 1</input>
+        <input name="speed1" id="speed1" oninput="fetchvalue(this.value)" type="number" min="-213" max="213" value="0">Speed Controle track 1</input>
+        <input type="button" id="Run" value="Run" name="Run" onclick="Stop()"></input>
     </form>
   </body>
 </html>
