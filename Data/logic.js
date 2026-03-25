@@ -6,6 +6,7 @@ console.log(fetch("/get-trains"));
 
 maxSpeed = fetch("/get-trains").then((res) => res.json());
 
+
 window.onload = () => {
   fetch("/get-trains")
     .then((res) => res.json())
@@ -61,6 +62,7 @@ function save() {
 function off() {
   document.getElementById("edit").style.display = "none";
 }
+
 function populateTrainList() {
   var tab;
   let Trains;
