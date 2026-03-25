@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+    size: 15%;
+}
+#Header
+{
+    display: flexbox;
+    grid-template-columns: repeat();
+    background-color: gray;
+}
+/* #MenuContent
+{
+    display: grid;
+} */
+#Menu
+{
+    size: 0%;
+}
+h1
+{
+    margin-top: 0;
+ margin-bottom: 0;
+}
