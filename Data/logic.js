@@ -1,4 +1,5 @@
 let emergancy = false;
+let run = false;
 
 let maxSpeed;
 
@@ -34,9 +35,11 @@ function Stop() {
   if (emergancy == true) {
     fetch("/get?speed1=" + 0);
     document.getElementById("Run").value = "Stopp";
+    document.getElementById("Run").style.backgroundColor = "red";
   } else {
     fetch("/get?speed1=" + document.getElementById("speed1").value);
     document.getElementById("Run").value = "Run";
+    document.getElementById("Run").style.backgroundColor = "green";
   }
 }
 
@@ -49,8 +52,17 @@ function getMaxSpeed() {
 }
 
 function Menu() {
-  document.getElementById("MenuContent").hidden =
-    !document.getElementById("MenuContent").hidden;
+  let visibility = "hidden";
+  run = !run;
+  if(run == true)
+  {
+    visibility = "visible"
+  }
+  else
+  {
+    visibility = "hidden";
+  }
+  document.getElementById("MenuContent").style.visibility = visibility;
 }
 
 function edit() {
