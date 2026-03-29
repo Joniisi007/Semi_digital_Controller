@@ -16,19 +16,25 @@
     </button>
     <h1>Platten Controller</h1>
     </div>
-     <div id="MenuContent">
-      <a href="index.html">Home</a>
-      <a href="Trains.html">Züge bearbeiten</a>
-    </div>
     <title>Platten Controller</title>
   </head>
   <body>
+    <div id="content">
+    <div id="MenuContent">
+      <a href="index.html">Home</a>
+      <a href="Trains.html">Züge bearbeiten</a>
+    </div>
+
+    <div id="Train_Controll">
     <form action="get-trains">
       <select onchange="getMaxSpeed()" name="trainSelect" id="trainSelect"><option>Lade...</option></select>
     </form>
+
     <form action="get">
         <input name="speed1" id="speed1" oninput="fetchvalue(this.value)" type="number" min="-213" max="213" value="0">Speed Controle track 1</input>
         <input type="button" id="Run" value="Run" name="Run" onclick="Stop()"></input>
     </form>
+    </div>
+    </div>
   </body>
 </html>

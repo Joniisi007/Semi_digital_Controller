@@ -36,10 +36,12 @@ function Stop() {
     fetch("/get?speed1=" + 0);
     document.getElementById("Run").value = "Stopp";
     document.getElementById("Run").style.backgroundColor = "red";
+    document.getElementById("Train_Controll").style.backgroundColor = "red"
   } else {
     fetch("/get?speed1=" + document.getElementById("speed1").value);
     document.getElementById("Run").value = "Run";
     document.getElementById("Run").style.backgroundColor = "green";
+    document.getElementById("Train_Controll").style.backgroundColor = "lightgreen"
   }
 }
 

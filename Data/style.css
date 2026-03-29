@@ -8,6 +8,10 @@ body{
     grid-template-columns: repeat();
     background-color: gray;
 }
+#content
+{
+    display: flex;
+}
 #Run
 {
     background-color: green;
@@ -16,17 +20,25 @@ body{
 }
 #MenuContent
 {
-    position: fixed;
     visibility: hidden;
     display: grid;
-    background-color: #56804B;
+    background-color:rgb(0, 130, 74);
     padding-right: 2%;
     padding-bottom: 90%;
-    z-index: 2;
+    width: 6%;
+    /* z-index: 2; */
 }
 #Menu
 {
     size: 0%;
+    margin-top: 0.5%;
+    height: 2%;
+    width: 2%;
+    align-content: center;
+}
+#Train_Controll
+{
+    background-color: white;
 }
 h1
 {
@@ -35,5 +47,5 @@ h1
 }
 a
 {
-    padding-bottom: 1%;
+    padding-bottom: 4%;
 }
