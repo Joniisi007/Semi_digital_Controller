@@ -1,51 +1,47 @@
-body{
-    margin: 0;
-    size: 15%;
+body {
+  margin: 0;
+  size: 15%;
 }
-#Header
-{
-    display: flex;
-    grid-template-columns: repeat();
-    background-color: gray;
+#Header {
+  display: flex;
+  grid-template-columns: repeat();
+  background-color: gray;
 }
-#content
-{
-    display: flex;
+#content {
+  display: flex;
 }
-#Run
-{
-    background-color: green;
-    border-radius: 10%;
-    border: 1%;
+#Run {
+  background-color: green;
+  border-radius: 10%;
+  border: 1%;
 }
-#MenuContent
-{
-    visibility: hidden;
-    display: grid;
-    background-color:rgb(0, 130, 74);
-    padding-right: 2%;
-    padding-bottom: 90%;
-    width: 6%;
-    /* z-index: 2; */
+#MenuContent {
+  visibility: hidden;
+  display: none;
+  background-color: rgb(0, 130, 74);
+  padding-right: 2%;
+  padding-bottom: 90%;
+  width: 6%;
 }
-#Menu
-{
-    size: 0%;
-    margin-top: 0.5%;
-    height: 2%;
-    width: 2%;
-    align-content: center;
+#Menu {
+  size: 0%;
+  margin-top: 0.5%;
+  height: 2%;
+  width: 2%;
+  align-content: center;
 }
-#Train_Controll
-{
-    background-color: white;
+#Train_Controll {
+  background-color: white;
+  height: 10%;
+  width: 100%;
+  padding-top: 0.5%;
+  padding-left: 0.3%;
+  padding-bottom: 0.2%;
 }
-h1
-{
-    margin-top: 0;
-    margin-bottom: 0;
+h1 {
+  margin-top: 0;
+  margin-bottom: 0;
 }
-a
-{
-    padding-bottom: 4%;
+a {
+  padding-bottom: 4%;
 }

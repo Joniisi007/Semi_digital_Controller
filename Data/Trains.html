@@ -11,15 +11,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zugliste bearbeiten</title>
-    <a href="index.html">Home</a>
+    <a href="http://192.168.2.162/">Home</a>
   </head>
   <body>
     <div id="edit" style="display: none; z-index: 2;">
+      <form action="edit_train">
       <input type="text" id="edit_id" name="edit_id" readonly></input>
       <input type="text" id="edit_type" name="edit_type"></input>
       <input type="number" id="edit_speed" name="edit_speed"></input>
+      </form>
       <button id="Cancel" value="Abbrechen" onclick="off()">Abbrechen</button>
-      <button id="Save" value="Speichern" onclick="off()">Speichern</button>
+      <button id="Save" value="Speichern" onclick="save()">Speichern</button>
       </div>
     <script>
         populateTrainList();

@@ -26,6 +26,7 @@ char *passwort = "39130840523380688734"; // hier muss das Passwort stehen
 char *Speed1 = "speed1";
 char *Run = "Run";
 char *Trains = "trainSelect";
+char *Edit_Type = "edit_type";
 
 bool emergancy = false;
 
@@ -81,6 +82,9 @@ void Serverinit()
   server.on("/train_icon.png", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(LittleFS, "/train_icon.png"); });
 
+  server.on("/menuIcon.svg", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/menuIcon.svg"); });
+
   server.on("/get", HTTP_GET, [](AsyncWebServerRequest *request)
             {
               if (request->hasParam(Speed1))
@@ -103,19 +107,22 @@ void Serverinit()
               request->send(404, "text/plain", "Datei nicht gefunden");
             } });
 
-  server.on("/get-edit", HTTP_GET, [](AsyncWebServerRequest *request)
+  server.on("/get_edit", HTTP_GET, [](AsyncWebServerRequest *request)
             {
-              if(SD_MMC.exists("/Trains.json")) {
-                request->send(SD_MMC, "/Trains.json", "application/json");
-                Serial.print("Test: ");
-                Serial.println(request->getParam("/get-edit")->value());
-                
-                // File file = SD_MMC.open("/Trains.json", FILE_WRITE);
-                // file.print("{\"id\": 7, \"type\": \"Dampflok\", \"speed\": 0.5}");
-                // file.close();
-            } else {
-              request->send(404, "text/plain", "Datei nicht gefunden");
-            } });
+              if(request->hasParam(Edit_Type)) {
+                Serial.println("Edit Type: ");
+                Serial.println(request->getParam(Edit_Type)->value());
+              }
+              Serial.println("Edit Request received");
+              //   if(SD_MMC.exists("/Trains.json")) {
+              //     request->send(SD_MMC, "/Trains.json", "application/json");
+              //     Serial.print("Test: ");
+
+              //     // File file = SD_MMC.open("/Trains.json", FILE_WRITE);
+              //     // file.print("{\"id\": 7, \"type\": \"Dampflok\", \"speed\": 0.5}");
+              //     // file.close();
+              // } else {
+              request->send(404, "text/plain", "Datei nicht gefunden"); });
 
   server.onNotFound([](AsyncWebServerRequest *request)
                     { request->send(404, "text/plain", "Seite nicht vorhanden!"); });
@@ -124,7 +131,6 @@ void Serverinit()
 
 void setup()
 {
-
   ledcSetup(0, 16000, 8); // Channel 0, 5 kHz frequency, 8-bit resolution
   ledcAttachPin(pin, 0);
   ledcWrite(0, speed);
