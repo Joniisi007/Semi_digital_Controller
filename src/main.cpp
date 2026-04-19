@@ -27,6 +27,7 @@ char *Speed1 = "speed1";
 char *Run = "Run";
 char *Trains = "trainSelect";
 char *Edit_Type = "edit_type";
+char *Save = "Save";
 
 bool emergancy = false;
 
@@ -48,6 +49,7 @@ int pin = 22;
 double speed = 0.0;
 
 String speedString = "0.0";
+String testread = "";
 
 void speedControl()
 {
@@ -107,22 +109,55 @@ void Serverinit()
               request->send(404, "text/plain", "Datei nicht gefunden");
             } });
 
-  server.on("/get_edit", HTTP_GET, [](AsyncWebServerRequest *request)
+  server.on("/edit_train", HTTP_GET, [](AsyncWebServerRequest *request)
             {
+
+              char *e_type = "edit_type";
+              char *e_id   = "edit_id";
+              char *e_max_speed = "edit_speed";
+
+              int id = 0;
+              String type; 
+              int max_speed = 0;
+              
               if(request->hasParam(Edit_Type)) {
                 Serial.println("Edit Type: ");
                 Serial.println(request->getParam(Edit_Type)->value());
               }
-              Serial.println("Edit Request received");
-              //   if(SD_MMC.exists("/Trains.json")) {
-              //     request->send(SD_MMC, "/Trains.json", "application/json");
-              //     Serial.print("Test: ");
+              if(request->hasParam(Save))
+              {
+              if(SD_MMC.exists("/Trains.json")) {
+                  request->send(SD_MMC, "/Trains.json", "application/json");
+                  File file = SD_MMC.open("/Trains.json", FILE_READ);
+                    DynamicJsonDocument doc(2048);
+                    DeserializationError error = deserializeJson(doc, file);
+                  file.close();
+                  if (error) {
+                    Serial.println("Fehler beim Parsen der JSON");
+                  }
+                  else
+                  {
+                    id = request->getParam(e_id)->value().toInt();
+                    id = id - 1;
+                    type = request->getParam(e_type)->value();
+                    max_speed = request->getParam(e_max_speed)->value().toInt();
 
-              //     // File file = SD_MMC.open("/Trains.json", FILE_WRITE);
-              //     // file.print("{\"id\": 7, \"type\": \"Dampflok\", \"speed\": 0.5}");
-              //     // file.close();
-              // } else {
-              request->send(404, "text/plain", "Datei nicht gefunden"); });
+                    Serial.println(id);
+                    Serial.println(max_speed);
+
+                    doc["Train"][id]["type"] = type;
+                    doc["Train"][id]["max_speed"] = max_speed;
+                   File file = SD_MMC.open("/Trains.json", FILE_WRITE);
+                    if (serializeJson(doc, file) == 0) {
+                      Serial.println("Fehler beim Schreiben der Datei");
+                    }
+                    file.close();
+                  }
+                } else {
+                  request->send(404, "text/plain", "Datei nicht gefunden");
+                }
+              }
+            });
 
   server.onNotFound([](AsyncWebServerRequest *request)
                     { request->send(404, "text/plain", "Seite nicht vorhanden!"); });
@@ -179,4 +214,4 @@ void loop()
   // analogWrite(pin, speed);
 }
 
-#endif
+#endif.

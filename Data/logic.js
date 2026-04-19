@@ -90,7 +90,9 @@ function edit(index) {
 }
 function save() {
   console.log(document.getElementById("edit_type").value);
-  console.log(fetch("/get_edit"));
+  // console.log(fetch("/get_edit"));
+  document.getElementById("edit").style.display = "none";
+  fetch("/edit_train")
 }
 function off() {
   document.getElementById("edit").style.display = "none";
