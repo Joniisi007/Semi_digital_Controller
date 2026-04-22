@@ -1,25 +1,23 @@
 <!doctype html>
 <html lang="de">
-  <head>
-    <link rel="stylesheet" href="style.css" />
-   
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="/train_icon.png"
-    />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <div id="Header">
-    <button type="button" onclick="Menu('button')" id="Menu" name="menu" >
+
+<head>
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="icon" type="image/x-icon" href="/train_icon.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <div id="Header">
+    <button type="button" onclick="Menu('button')" id="Menu" name="menu">
       <img src="menuIcon.svg" height="15px" width="15px">
     </button>
     <h1>Platten Kontroller</h1>
-    </div>
-    <title>Platten Kontroller</title>
-  </head>
-  <body>
-    <div id="content" onclick="Menu('div')">
+  </div>
+  <title>Platten Kontroller</title>
+</head>
+
+<body>
+  <div id="content" onclick="Menu('div')">
     <div id="MenuContent">
       <a href="http://192.168.2.162/">Home</a>
       <a href="Trains.html">Züge bearbeiten</a>
@@ -27,18 +25,26 @@
 
     <div id="Train_Controll">
       <p>Fahrregler Gleis 1</p>
-        <form action="get" id="get">
+      <form action="get" id="get">
         <input id="sliders" type="range" min="0" max="213" value="0"></input>
-          <div id="controlls">
-          <input name="speed1" id="speed1" onchange="fetchvalue(this.value)" type="number" min="-213" max="213" value="0"></input>
+        <div id="controlls">
+          <input name="speed1" id="speed1" onchange="fetchvalue(this.value)" type="number" min="-213" max="213"
+            value="0"></input>
           <input type="button" id="Run" value="Ausführen" name="Run" onclick="Stop()"></input>
         </div>
-        </form>
-      </form>  <form action="get-trains">
-        <select onchange="getMaxSpeed()" name="trainSelect" id="trainSelect"><option>Lade...</option></select>
+        <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+        </label>
+      </form>
+      <form action="get-trains">
+        <select onchange="getMaxSpeed()" name="trainSelect" id="trainSelect">
+          <option>Lade...</option>
+        </select>
       </form>
     </div>
-    </div>
-     <script src="logic.js"></script>
-  </body>
+  </div>
+  <script src="logic.js"></script>
+</body>
+
 </html>
