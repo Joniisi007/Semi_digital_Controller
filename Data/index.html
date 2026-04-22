@@ -2,7 +2,7 @@
 <html lang="de">
   <head>
     <link rel="stylesheet" href="style.css" />
-    <script src="logic.js"></script>
+   
     <link
       rel="icon"
       type="image/x-icon"
@@ -14,9 +14,9 @@
     <button type="button" onclick="Menu('button')" id="Menu" name="menu" >
       <img src="menuIcon.svg" height="15px" width="15px">
     </button>
-    <h1>Platten Controller</h1>
+    <h1>Platten Kontroller</h1>
     </div>
-    <title>Platten Controller</title>
+    <title>Platten Kontroller</title>
   </head>
   <body>
     <div id="content" onclick="Menu('div')">
@@ -26,15 +26,19 @@
     </div>
 
     <div id="Train_Controll">
-    <form action="get-trains">
-      <select onchange="getMaxSpeed()" name="trainSelect" id="trainSelect"><option>Lade...</option></select>
-    </form>
-
-    <form action="get">
-        <input name="speed1" id="speed1" oninput="fetchvalue(this.value)" type="number" min="-213" max="213" value="0">Speed Controle track 1</input>
-        <input type="button" id="Run" value="Run" name="Run" onclick="Stop()"></input>
-    </form>
+      <p>Fahrregler Gleis 1</p>
+        <form action="get" id="get">
+        <input id="sliders" type="range" min="0" max="213" value="0"></input>
+          <div id="controlls">
+          <input name="speed1" id="speed1" onchange="fetchvalue(this.value)" type="number" min="-213" max="213" value="0"></input>
+          <input type="button" id="Run" value="Ausführen" name="Run" onclick="Stop()"></input>
+        </div>
+        </form>
+      </form>  <form action="get-trains">
+        <select onchange="getMaxSpeed()" name="trainSelect" id="trainSelect"><option>Lade...</option></select>
+      </form>
     </div>
     </div>
+     <script src="logic.js"></script>
   </body>
 </html>

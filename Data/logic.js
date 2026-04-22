@@ -3,9 +3,14 @@ let run = false;
 
 let maxSpeed;
 
-console.log(fetch("/get-trains"));
+let slider = document.getElementById("sliders");
 
-maxSpeed = fetch("/get-trains").then((res) => res.json());
+// maxSpeed = fetch("/get-trains").then((res) => res.json());
+
+
+// fetch('/get-trains').then((res) => res.json()).then(res => maxSpeed = res.)
+
+slider.addEventListener("change", () => setSliderValue(slider.value));
 
 window.onload = () => {
   fetch("/get-trains")
@@ -33,6 +38,12 @@ function fetchvalue(value) {
   }
 }
 
+function setSliderValue(speed)
+{
+  console.log(speed)
+    document.getElementById("speed1").value = speed;
+}
+
 function Stop() {
   console.log(fetch("/get?Run=0"));
   console.log(document.getElementById("speed1").value);
@@ -44,7 +55,7 @@ function Stop() {
     document.getElementById("Train_Controll").style.backgroundColor = "#da3c3c";
   } else {
     fetch("/get?speed1=" + document.getElementById("speed1").value);
-    document.getElementById("Run").value = "Run";
+    document.getElementById("Run").value = "Ausführen";
     document.getElementById("Run").style.backgroundColor = "green";
     if (document.getElementById("speed1").value > 0) {
       document.getElementById("Train_Controll").style.backgroundColor =
@@ -93,6 +104,13 @@ function save() {
   // console.log(fetch("/get_edit"));
   document.getElementById("edit").style.display = "none";
   fetch("/edit_train")
+}
+function add() {
+  document.getElementById("edit").style.display = "block";
+  let id = document.getElementById("Trainlist").rows.length;
+  document.getElementById("add").checked="checked";
+  document.getElementById("edit_id").value = id;
+  console.log(document.getElementById("add").checked);
 }
 function off() {
   document.getElementById("edit").style.display = "none";

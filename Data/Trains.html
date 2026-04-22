@@ -11,7 +11,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zugliste bearbeiten</title>
-    <a href="http://192.168.2.162/">Home</a>
+    <a href="index.html">Home</a>
   </head>
   <body>
     <div id="edit" style="display: none; z-index: 2;">
@@ -21,8 +21,11 @@
       <input type="number" id="edit_speed" name="edit_speed"></input>
       <button id="Cancel" value="Abbrechen" onclick="off()">Abbrechen</button>
       <button id="Save" name="Save" value="Speichern" onclick="save()">Speichern</button>
+      <button id="Del" name="Del" value="Löschen" onclick="Save()">Löschen</button>
+      <input type="checkbox" name="isAdd" id="isAdd" style="display: none;" checked=""></input>
       </form>
       </div>
+      <button id="add" value="add" onclick="add()">Hinzufügen</button>
     <script>
         populateTrainList();
     </script>
