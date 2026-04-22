@@ -46,9 +46,9 @@ using SpiRamJsonDocument = BasicJsonDocument<SpiRamAllocator>;
 
 int pin = 22;
 
-double speed = 0.0;
+double speed = 0.00;
 
-String speedString = "0.0";
+String speedString = "0.00";
 String testread = "";
 
 void speedControl()
@@ -109,11 +109,9 @@ void Serverinit()
               request->send(404, "text/plain", "Datei nicht gefunden");
             } });
 
-  server.on("/add", HTTP_GET, [](AsyncWebServerRequest *request)
-  {
-    
-  });   
+  server.on("/add", HTTP_GET, [](AsyncWebServerRequest *request) {
 
+  });
 
   server.on("/edit_train", HTTP_GET, [](AsyncWebServerRequest *request)
             {
@@ -192,8 +190,7 @@ void Serverinit()
                 } 
               }else {
                   request->send(404, "text/plain", "Datei nicht gefunden");
-                }
-            });
+                } });
 
   server.onNotFound([](AsyncWebServerRequest *request)
                     { request->send(404, "text/plain", "Seite nicht vorhanden!"); });

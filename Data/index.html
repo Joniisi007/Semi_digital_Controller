@@ -19,7 +19,7 @@
 <body>
   <div id="content" onclick="Menu('div')">
     <div id="MenuContent">
-      <a href="http://192.168.2.162/">Home</a>
+      <a href="/">Home</a>
       <a href="Trains.html">Züge bearbeiten</a>
     </div>
 
@@ -28,8 +28,7 @@
       <form action="get" id="get">
         <input id="sliders" type="range" min="0" max="213" value="0"></input>
         <div id="controlls">
-          <input name="speed1" id="speed1" onchange="fetchvalue(this.value)" type="number" min="-213" max="213"
-            value="0"></input>
+          <input name="speed1" id="speed1" onchange="fetchvalue(this.value)" type="number" step=".01"  min="0" max="213" value="0"></input>
           <input type="button" id="Run" value="Ausführen" name="Run" onclick="Stop()"></input>
         </div>
         <label class="switch">

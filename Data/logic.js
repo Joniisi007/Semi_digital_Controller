@@ -7,10 +7,9 @@ let slider = document.getElementById("sliders");
 
 // maxSpeed = fetch("/get-trains").then((res) => res.json());
 
-
 // fetch('/get-trains').then((res) => res.json()).then(res => maxSpeed = res.)
 
-slider.addEventListener("change", () => setSliderValue(slider.value));
+slider.oninput = () => setSliderValue(slider.value);
 
 window.onload = () => {
   fetch("/get-trains")
@@ -38,10 +37,10 @@ function fetchvalue(value) {
   }
 }
 
-function setSliderValue(speed)
-{
-  console.log(speed)
-    document.getElementById("speed1").value = speed;
+function setSliderValue(speed) {
+  console.log(speed);
+  document.getElementById("speed1").value = speed;
+  fetchvalue(speed);
 }
 
 function Stop() {
@@ -103,12 +102,12 @@ function save() {
   console.log(document.getElementById("edit_type").value);
   // console.log(fetch("/get_edit"));
   document.getElementById("edit").style.display = "none";
-  fetch("/edit_train")
+  fetch("/edit_train");
 }
 function add() {
   document.getElementById("edit").style.display = "block";
   let id = document.getElementById("Trainlist").rows.length;
-  document.getElementById("add").checked="checked";
+  document.getElementById("add").checked = "checked";
   document.getElementById("edit_id").value = id;
   console.log(document.getElementById("add").checked);
 }
