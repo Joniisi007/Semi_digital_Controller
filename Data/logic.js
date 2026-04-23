@@ -65,6 +65,13 @@ function Stop() {
   }
 }
 
+function changedirection()
+{
+  document.getElementById("speed1").value = 0;
+  console.log(document.getElementById("test").value);
+  fetch("/get"); // soll ich /get?reverse Machen ?
+}
+
 function getMaxSpeed() {
   console.log(document.getElementById("trainSelect").selectedIndex);
   document.getElementById("speed1").max =
@@ -88,6 +95,9 @@ function Menu(Origin) {
   document.getElementById("MenuContent").style.display = display;
 }
 
+
+
+//Train.HTML
 function edit(index) {
   document.getElementById("edit").style.display = "block";
   fetch("/get-trains")
@@ -98,6 +108,7 @@ function edit(index) {
       document.getElementById("edit_speed").value = data.Train[index].max_speed;
     });
 }
+
 function save() {
   console.log(document.getElementById("edit_type").value);
   // console.log(fetch("/get_edit"));
