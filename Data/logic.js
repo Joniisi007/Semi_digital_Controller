@@ -28,6 +28,7 @@ window.onload = () => {
 
 function fetchvalue(value) {
   console.log(value);
+  document.getElementById("reverse").value = value;
   fetch("/get?speed1=" + value);
   if (value > 0) {
     document.getElementById("Train_Controll").style.backgroundColor =
@@ -65,11 +66,11 @@ function Stop() {
   }
 }
 
-function changedirection()
-{
+function changedirection() {
   document.getElementById("speed1").value = 0;
-  console.log(document.getElementById("test1").value);
-  fetch("/get"); // soll ich /get?reverse Machen ?
+  document.getElementById("reverse").value = 0;
+  fetch("/get?reverse="); // soll ich /get?reverse Machen ?
+  fetch("/get?speed1=0");
 }
 
 function getMaxSpeed() {
@@ -94,8 +95,6 @@ function Menu(Origin) {
   document.getElementById("MenuContent").style.visibility = visibility;
   document.getElementById("MenuContent").style.display = display;
 }
-
-
 
 //Train.HTML
 function edit(index) {
