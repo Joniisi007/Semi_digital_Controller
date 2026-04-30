@@ -69,7 +69,7 @@ function changedirection()
 {
   document.getElementById("speed1").value = 0;
   console.log(document.getElementById("test1").value);
-  fetch("/get"); // soll ich /get?reverse Machen ?
+  fetch("/get");
 }
 
 function getMaxSpeed() {

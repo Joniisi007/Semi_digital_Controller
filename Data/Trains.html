@@ -1,41 +1,50 @@
 <!doctype html>
 <html lang="de">
-  <script src="logic.js"></script>
-  <link rel="stylesheet" href="trainlist_style.css">
-  <head>
-     <link
-      rel="icon"
-      type="image/x-icon"
-      href="/train_icon.png"
-    />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zugliste bearbeiten</title>
-    <a href="/">Home</a>
-  </head>
-  <body>
+<script src="logic.js"></script>
+<link rel="stylesheet" href="trainlist_style.css">
+
+<head>
+  <link rel="icon" type="image/x-icon" href="/train_icon.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <div id="Header">
+    <button type="button" onclick="Menu('button')" id="Menu" name="menu">
+      <img src="menuIcon.svg" height="15px" width="15px">
+    </button>
+    <h1>Platten Kontroller</h1>
+  </div>
+  <title>Zugliste bearbeiten</title>
+</head>
+
+<body>
+  <div id="content" onclick="Menu('div')">
+    <div id="MenuContent">
+      <a href="Trains.html">Züge bearbeiten</a>
+      <a href="/">Home</a>
+    </div>
     <div id="edit" style="display: none; z-index: 2;">
       <form action="edit_train">
-      <input type="text" id="edit_id" name="edit_id" readonly></input>
-      <input type="text" id="edit_type" name="edit_type"></input>
-      <input type="number" id="edit_speed" name="edit_speed"></input>
-      <button id="Cancel" value="Abbrechen" onclick="off()">Abbrechen</button>
-      <button id="Save" name="Save" value="Speichern" onclick="save()">Speichern</button>
-      <button id="Del" name="Del" value="Löschen" onclick="Save()">Löschen</button>
-      <input type="checkbox" name="isAdd" id="isAdd" style="display: none;" checked=""></input>
+        <input type="text" id="edit_id" name="edit_id" readonly></input>
+        <input type="text" id="edit_type" name="edit_type"></input>
+        <input type="number" id="edit_speed" name="edit_speed"></input>
+        <button id="Cancel" value="Abbrechen" onclick="off()">Abbrechen</button>
+        <button id="Save" name="Save" value="Speichern" onclick="save()">Speichern</button>
+        <button id="Del" name="Del" value="Löschen" onclick="Save()">Löschen</button>
+        <input type="checkbox" name="isAdd" id="isAdd" style="display: none;" checked=""></input>
       </form>
-      </div>
-      <button id="add" value="add" onclick="add()">Hinzufügen</button>
+    </div>
+    <button id="add" value="add" onclick="add()">Hinzufügen</button>
     <script>
-        populateTrainList();
+      populateTrainList();
     </script>
-        <table id='Trainlist'>
-        <tr>
-            <th>ID</th>
-            <th>Type</th>
-            <th>max_speed</th>
-            <th>Functions</th>
-        </tr>
+    <table id='Trainlist'>
+      <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>max_speed</th>
+        <th>Functions</th>
+      </tr>
 
-  </body>
+</body>
+
 </html>
