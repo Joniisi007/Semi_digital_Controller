@@ -147,7 +147,7 @@ function populateTrainList() {
           "<td>" +
           train.max_speed +
           "</td>" +
-          "<td>" +
+          "<td id='Function'>" +
           '<button type="button" id="edit' +
           Trains.Train[index].id +
           '" onclick="edit(' +

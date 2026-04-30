@@ -18,22 +18,23 @@
 
 <body>
   <div id="content" onclick="Menu('div')">
-    <div id="MenuContent">
-      <a href="Trains.html">Züge bearbeiten</a>
-      <a href="/">Home</a>
-    </div>
-    <div id="edit" style="display: none; z-index: 2;">
-      <form action="edit_train">
-        <input type="text" id="edit_id" name="edit_id" readonly></input>
-        <input type="text" id="edit_type" name="edit_type"></input>
-        <input type="number" id="edit_speed" name="edit_speed"></input>
-        <button id="Cancel" value="Abbrechen" onclick="off()">Abbrechen</button>
-        <button id="Save" name="Save" value="Speichern" onclick="save()">Speichern</button>
-        <button id="Del" name="Del" value="Löschen" onclick="Save()">Löschen</button>
-        <input type="checkbox" name="isAdd" id="isAdd" style="display: none;" checked=""></input>
-      </form>
-    </div>
-    <button id="add" value="add" onclick="add()">Hinzufügen</button>
+  <div id="MenuContent">
+    <a href="Trains.html">Züge bearbeiten</a>
+    <a href="/">Home</a>
+  </div>
+  <div id="edit" style="display: none; z-index: 2;">
+    <form action="edit_train">
+      <input type="text" id="edit_id" name="edit_id" readonly></input>
+      <input type="text" id="edit_type" name="edit_type"></input>
+      <input type="number" id="edit_speed" name="edit_speed"></input>
+      <button id="Cancel" value="Abbrechen" onclick="off()">Abbrechen</button>
+      <button id="Save" name="Save" value="Speichern" onclick="save()">Speichern</button>
+      <button id="Del" name="Del" value="Löschen" onclick="Save()">Löschen</button>
+      <input type="checkbox" name="isAdd" id="isAdd" style="display: none;" checked=""></input>
+    </form>
+  </div>
+
+  <div id="Table">
     <script>
       populateTrainList();
     </script>
@@ -44,7 +45,10 @@
         <th>max_speed</th>
         <th>Functions</th>
       </tr>
-
+    </table>
+     <button id="add" value="add" onclick="add()">Hinzufügen</button>
+  </div>
+</div>
 </body>
 
 </html>
