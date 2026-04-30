@@ -30,6 +30,7 @@ char *Edit_Type = "edit_type";
 char *Save = "Save";
 
 bool emergancy = false;
+bool reverse = false;
 
 struct SpiRamAllocator
 {
@@ -44,7 +45,8 @@ struct SpiRamAllocator
 };
 using SpiRamJsonDocument = BasicJsonDocument<SpiRamAllocator>;
 
-int pin = 22;
+int pin1 = 22;
+int pin2 = 21;
 
 double speed = 0.00;
 
@@ -53,13 +55,19 @@ String testread = "";
 
 void speedControl()
 {
+  int localchanel = 0;
+  if (reverse == true)
+  {
+    localchanel = 1;
+  }
   if (emergancy == false)
   {
-    ledcWrite(0, speed);
+    ledcWrite(localchanel, speed);
   }
   else
   {
     ledcWrite(0, 0);
+    ledcWrite(1, 0);
   }
   Serial.println(speed);
 }
@@ -89,6 +97,7 @@ void Serverinit()
 
   server.on("/get", HTTP_GET, [](AsyncWebServerRequest *request)
             {
+              char *reverseParam = "reverse";
               if (request->hasParam(Speed1))
               {
                 speedString = request->getParam(Speed1)->value();
@@ -97,6 +106,12 @@ void Serverinit()
               if (request->hasParam(Run))
               {
                 emergancy = !emergancy;
+              }
+              if (request->hasParam(reverseParam))
+              {
+                reverse = !reverse;
+                ledcWrite(0, 0);
+                ledcWrite(1, 0);
               }
               speedControl();
               request->send(LittleFS, "/index.html"); });
@@ -199,8 +214,9 @@ void Serverinit()
 
 void setup()
 {
-  ledcSetup(0, 16000, 8); // Channel 0, 5 kHz frequency, 8-bit resolution
-  ledcAttachPin(pin, 0);
+  ledcSetup(0, 16000, 8); // Channel 16 kHz frequency, 8-bit resolution
+  ledcAttachPin(pin1, 0);
+  ledcAttachPin(pin2, 1);
   ledcWrite(0, speed);
 
   Serial.begin(115200); // serielle Schnittstelle initialisieren
