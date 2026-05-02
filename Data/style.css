@@ -72,6 +72,41 @@ a {
 p {
   margin: 0.1%;
 }
+/*Phone*/
+@media (max-width: 600px) {
+#MenuContent {
+  visibility: hidden;
+  display: none;
+  background-color: rgb(0, 130, 74);
+  padding-right: 2%;
+  padding-bottom: 90%;
+  width: 15%;
+}
+#Menu {
+  size: 0%;
+  margin-top: 0.5%;
+  height: 6%;
+  width: 6%;
+  align-content: center;
+}
+#Train_Controll {
+  display: flex;
+  position: static;
+  z-index: 2;
+  flex-direction: column;
+  background-color: white;
+  align-items: center;
+  width: fit-content;
+  height: 100%;
+  width: 95%;
+  padding-top: 0.5%;
+  padding-left: 0.3%;
+  margin-left: 2%;
+  padding-bottom: 0.2%;
+  border: 1px solid;
+}
+}
+
 
 /* Switch */
 /* The switch - the box around the slider */
