@@ -80,3 +80,65 @@ td {
   border-collapse: collapse;
   padding-right: 3px;
 }
+/* Phone */
+@media (max-width: 600px) {
+#MenuContent {
+  visibility: hidden;
+  display: none;
+  position: fixed;
+  background-color: rgb(0, 130, 74);
+  padding-left: 1%;
+  padding-right: 2%;
+  padding-bottom: 201%;
+  width: 50%;
+  z-index: 2;
+}
+#Menu {
+  size: 0%;
+  margin-top: 2.5%;
+  margin-left:0.5%;
+  height: 10%;
+  width: 7%;
+  align-content: center;
+}
+a{
+  font-size: 30px;
+  padding-bottom: 15px;
+}
+h1
+{
+  font-size: 45px;
+}
+/* First Layer */
+#Table {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+}
+
+#add {
+  align-self: start;
+  font-size: 15px;
+}
+
+#Function {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table,
+th,
+td {
+  font-size: 30px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-collapse: collapse;
+  padding-right: 3px;
+}
+}
