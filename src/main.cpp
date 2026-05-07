@@ -21,8 +21,6 @@
 AsyncWebServer server(80);
 
 // WLAN-Zugangsdaten
-char *ssid = "MagentaWLAN-9YPW";         // hier muss die SSID stehen
-char *passwort = "39130840523380688734"; // hier muss das Passwort stehen
 char *Speed1 = "speed1";
 char *Run = "Run";
 char *Trains = "trainSelect";
@@ -214,25 +212,57 @@ void Serverinit()
 
 void setup()
 {
+  int atempt;
+
   ledcSetup(0, 16000, 8); // Channel 16 kHz frequency, 8-bit resolution
   ledcAttachPin(pin1, 0);
   ledcAttachPin(pin2, 1);
   ledcWrite(0, speed);
+
+  if (!LittleFS.begin())
+  {
+    Serial.println("An Error has occurred while mounting LittleFS!");
+  }
+
+  File file  = LittleFS.open("/config.json", "r");
+  DynamicJsonDocument doc(2048);
+
+  DeserializationError error = deserializeJson(doc, file);
+
+    if (error) {
+        Serial.print("Parsing fehlgeschlagen: ");
+        Serial.println(error.f_str());
+    }
+  char *ssid = doc["wlan"];         // hier muss die SSID stehen
+  char *passwort = doc["pww"];  
 
   Serial.begin(115200); // serielle Schnittstelle initialisieren
   Serial.print("Verbindungsaufbau zu ");
   Serial.println(ssid);
   WiFi.begin(ssid, passwort); // WiFi-Verbindung herstellen
   // warten bis Verbindung steht
-  while (WiFi.status() != WL_CONNECTED)
-  {
+  while (WiFi.status() != WL_CONNECTED && atempt < 6)
+  { 
+    Serial.println(ssid);
+    WiFi.begin(ssid, passwort); // WiFi-Verbindung herstellen
     delay(500);
     Serial.print(".");
+    if(WiFi.status() != WL_CONNECTED && atempt >= 3)
+    {
+      Serial.println("Fehlgeschlagen, neu Versuch");
+      ssid = doc["hotspot"];
+      passwort = doc["pwh"];
+    }
+    atempt++;
   }
-  Serial.print("Verbindung hergestellt.\n Lokale IP: ");
+  if (WiFi.status() == WL_CONNECTED)
+  {
+   Serial.print("Verbindung hergestellt.\n Lokale IP: ");
   Serial.println(WiFi.localIP());
   Serial.print("ESP Board MAC Adresse: ");
   Serial.println(WiFi.macAddress());
+
+    file.close();
 
   // PSRAM für den WROVER aktivieren
   if (psramInit())
@@ -249,18 +279,17 @@ void setup()
     Serial.println("SD_MMC bereit.");
   }
 
-  if (!LittleFS.begin())
-  {
-    Serial.println("An Error has occurred while mounting LittleFS!");
-  }
   Serverinit();
+  }
+  else
+  {
+    Serial.println("Verbindung Fehlgeschlagen! Empfohlen: ESP32 Neustarten");
+  }
 }
 
 void loop()
 {
-  // Serial.print("Aktuelle Geschwindigkeit: ");
-  // Serial.println(speed);
-  // analogWrite(pin, speed);
+
 }
 
 #endif.
