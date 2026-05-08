@@ -212,7 +212,7 @@ void Serverinit()
 
 void setup()
 {
-  int atempt;
+  Serial.begin(115200); // serielle Schnittstelle initialisieren
 
   ledcSetup(0, 16000, 8); // Channel 16 kHz frequency, 8-bit resolution
   ledcAttachPin(pin1, 0);
@@ -224,36 +224,39 @@ void setup()
     Serial.println("An Error has occurred while mounting LittleFS!");
   }
 
-  File file  = LittleFS.open("/config.json", "r");
+  File file  = LittleFS.open("/config.json", FILE_READ);
   DynamicJsonDocument doc(2048);
-
   DeserializationError error = deserializeJson(doc, file);
+  file.close();
 
-    if (error) {
-        Serial.print("Parsing fehlgeschlagen: ");
-        Serial.println(error.f_str());
-    }
-  char *ssid = doc["wlan"];         // hier muss die SSID stehen
-  char *passwort = doc["pww"];  
+  if (error) {
+      Serial.print("Parsing fehlgeschlagen: ");
+      Serial.println(error.f_str());
+  }
 
-  Serial.begin(115200); // serielle Schnittstelle initialisieren
+  const char *ssid = doc["wlan"];         
+  const char *passwort = doc["pww"]; 
+
+  const char *hotspot = doc["hotspot"];         
+  const char *passworth = doc["pwh"]; 
+
+
   Serial.print("Verbindungsaufbau zu ");
   Serial.println(ssid);
   WiFi.begin(ssid, passwort); // WiFi-Verbindung herstellen
   // warten bis Verbindung steht
-  while (WiFi.status() != WL_CONNECTED && atempt < 6)
+  int count = 0;
+  while (WiFi.status() != WL_CONNECTED);
   { 
-    Serial.println(ssid);
-    WiFi.begin(ssid, passwort); // WiFi-Verbindung herstellen
     delay(500);
     Serial.print(".");
-    if(WiFi.status() != WL_CONNECTED && atempt >= 3)
+    if (count == 30)
     {
-      Serial.println("Fehlgeschlagen, neu Versuch");
-      ssid = doc["hotspot"];
-      passwort = doc["pwh"];
+      Serial.println("Fehelgeschlagen, versuchen neues Wlan");
+      WiFi.begin(hotspot, passworth);
     }
-    atempt++;
+    
+    count++;
   }
   if (WiFi.status() == WL_CONNECTED)
   {
@@ -262,7 +265,6 @@ void setup()
   Serial.print("ESP Board MAC Adresse: ");
   Serial.println(WiFi.macAddress());
 
-    file.close();
 
   // PSRAM für den WROVER aktivieren
   if (psramInit())
