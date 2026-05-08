@@ -224,64 +224,62 @@ void setup()
     Serial.println("An Error has occurred while mounting LittleFS!");
   }
 
-  File file  = LittleFS.open("/config.json", FILE_READ);
+  File file = LittleFS.open("/config.json", FILE_READ);
   DynamicJsonDocument doc(2048);
   DeserializationError error = deserializeJson(doc, file);
   file.close();
 
-  if (error) {
-      Serial.print("Parsing fehlgeschlagen: ");
-      Serial.println(error.f_str());
+  if (error)
+  {
+    Serial.print("Parsing fehlgeschlagen: ");
+    Serial.println(error.f_str());
   }
 
-  const char *ssid = doc["wlan"];         
-  const char *passwort = doc["pww"]; 
+  const char *ssid = doc["wlan"];
+  const char *passwort = doc["pww"];
 
-  const char *hotspot = doc["hotspot"];         
-  const char *passworth = doc["pwh"]; 
-
+  const char *hotspot = doc["hotspot"];
+  const char *passworth = doc["pwh"];
 
   Serial.print("Verbindungsaufbau zu ");
   Serial.println(ssid);
   WiFi.begin(ssid, passwort); // WiFi-Verbindung herstellen
   // warten bis Verbindung steht
   int count = 0;
-  while (WiFi.status() != WL_CONNECTED);
-  { 
-    delay(500);
+  while (WiFi.status() != WL_CONNECTED && count < 30)
+  {
     Serial.print(".");
+    delay(500);
     if (count == 30)
     {
       Serial.println("Fehelgeschlagen, versuchen neues Wlan");
       WiFi.begin(hotspot, passworth);
     }
-    
     count++;
   }
   if (WiFi.status() == WL_CONNECTED)
   {
-   Serial.print("Verbindung hergestellt.\n Lokale IP: ");
-  Serial.println(WiFi.localIP());
-  Serial.print("ESP Board MAC Adresse: ");
-  Serial.println(WiFi.macAddress());
+    Serial.print("Verbindung hergestellt.\n Lokale IP: ");
+    Serial.println(WiFi.localIP());
+    Serial.print("ESP Board MAC Adresse: ");
+    Serial.println(WiFi.macAddress());
 
+    // PSRAM für den WROVER aktivieren
+    if (psramInit())
+      Serial.println("PSRAM OK");
 
-  // PSRAM für den WROVER aktivieren
-  if (psramInit())
-    Serial.println("PSRAM OK");
+    // 2. SD_MMC Initialisierung
+    // Hinweis: Beim WROVER nutzt SD_MMC meist GPIO 2, 14, 15, 12, 13
+    if (!SD_MMC.begin("/sdcard", true))
+    {
+      Serial.println("SD_MMC Karte konnte nicht gemountet werden!");
+    }
+    else
+    {
+      Serial.println("SD_MMC bereit.");
+    }
 
-  // 2. SD_MMC Initialisierung
-  // Hinweis: Beim WROVER nutzt SD_MMC meist GPIO 2, 14, 15, 12, 13
-  if (!SD_MMC.begin("/sdcard", true))
-  {
-    Serial.println("SD_MMC Karte konnte nicht gemountet werden!");
-  }
-  else
-  {
-    Serial.println("SD_MMC bereit.");
-  }
-
-  Serverinit();
+    Serverinit();
   }
   else
   {
@@ -291,7 +289,6 @@ void setup()
 
 void loop()
 {
-
 }
 
 #endif.
