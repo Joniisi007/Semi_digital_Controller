@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  size: 15%;
+}
+#edit {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#Header {
+  display: flex;
+  grid-template-columns: repeat();
+  background-color: gray;
+}
+#content {
+  display: flex;
+}
+#MenuContent {
+  visibility: hidden;
+  display: none;
+  background-color: rgb(0, 130, 74);
+  padding-right: 2%;
+  padding-bottom: 90%;
+  width: 6%;
+}
+#Menu {
+  size: 0%;
+  margin-top: 0.5%;
+  height: 2%;
+  width: 2%;
+  align-content: center;
+}
+h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+a {
+  padding-bottom: 4%;
+}
+p {
+  margin: 0.1%;
+}
+
+/* First Layer */
+#Table {
+  padding-left: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+}
+
+#add {
+  align-self: start;
+}
+
+#Function {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table,
+th,
+td {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-collapse: collapse;
+  padding-right: 3px;
+}
+/* Phone */
+@media (max-width: 600px) {
+#MenuContent {
+  visibility: hidden;
+  display: none;
+  position: fixed;
+  background-color: rgb(0, 130, 74);
+  padding-left: 1%;
+  padding-right: 2%;
+  padding-bottom: 201%;
+  width: 50%;
+  z-index: 2;
+}
+#Menu {
+  size: 0%;
+  margin-top: 2.5%;
+  margin-left:0.5%;
+  height: 10%;
+  width: 7%;
+  align-content: center;
+}
+a{
+  font-size: 30px;
+  padding-bottom: 15px;
+}
+h1
+{
+  font-size: 45px;
+}
+/* First Layer */
+#Table {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+}
+
+#add {
+  align-self: start;
+  font-size: 15px;
+}
+
+#Function {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table,
+th,
+td {
+  font-size: 30px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-collapse: collapse;
+  padding-right: 3px;
+}
+}
