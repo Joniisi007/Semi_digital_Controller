@@ -91,11 +91,18 @@ void Serverinit()
             { request->send(LittleFS, "/train_icon.png"); });
 
   server.on("/menuIcon.svg", HTTP_GET, [](AsyncWebServerRequest *request)
-            { request->send(LittleFS, "/menuIcon.svg"); });
+            { request->send(LittleFS, "/menuIcon.svg", "image/svg+xml"); });
+
+  server.on("/reverse_icon.svg", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/reverse_icon.svg", "image/svg+xml"); });
+  server.on("/reverse_icon.svg", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/reverse_icon.svg", "image/svg+xml"); });
+  server.on("/forward_icon.svg", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/forward_icon.svg", "image/svg+xml"); });
 
   server.on("/get", HTTP_GET, [](AsyncWebServerRequest *request)
             {
-              char *reverseParam = "reverse";
+              char *reverseParam = "direction";
               if (request->hasParam(Speed1))
               {
                 speedString = request->getParam(Speed1)->value();
@@ -107,7 +114,7 @@ void Serverinit()
               }
               if (request->hasParam(reverseParam))
               {
-                reverse = !reverse;
+                reverse = request->getParam(reverseParam)->value();
                 ledcWrite(0, 0);
                 ledcWrite(1, 0);
               }

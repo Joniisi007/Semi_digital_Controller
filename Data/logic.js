@@ -66,10 +66,16 @@ function Stop() {
   }
 }
 
-function changedirection() {
+function changedirection(direction) {
+  bderction = true;
   document.getElementById("speed1").value = 0;
-  document.getElementById("reverse").value = 0;
-  fetch("/get?reverse="); // soll ich /get?reverse Machen ?
+  // document.getElementById("reverse").value = 0;
+  if (direction == "reverse") {
+    bderction = false;
+  } else {
+    bderction = true;
+  }
+  fetch("/get?reverse=" + bderction);
   fetch("/get?speed1=0");
 }
 
