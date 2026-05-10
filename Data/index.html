@@ -3,8 +3,7 @@
 
 <head>
   <link rel="stylesheet" href="style.css" />
-
-  <link rel="icon" type="image/x-icon" href="/train_icon.png" />
+  <link rel="icon" type="image/x-icon" href="/data/train_icon.svg"/>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <div id="Header">
@@ -24,24 +23,25 @@
   <div id="content" onclick="Menu('div')">
     <div id="Train_Controll">
       <b>Fahrregler Gleis 1</b>
+      <form action="get-trains">
+        <select onchange="getMaxSpeed()" name="trainSelect" id="trainSelect">
+          <option>Lade...</option>
+        </select>
+      </form>
       <form action="get" id="get">
         <input id="sliders" class="thick_slider" type="range" min="0" max="213" value="0" step=".01"></input>
         <div id="controlls">
-          <p>V</p>
+          <input name="speed1" id="speed1" onchange="fetchvalue(this.value)" type="number" step=".01" min="0" max="213" value="0"></input>
+          <div id="direction">
+          <button id="forward" onclick="changedirection('forward')" img=""></button>
           <label class="switch">
             <input type="checkbox" id="reverse" value="reverses" name="reverse" onchange="changedirection()"></input>
             <span class="slider round"></span>
           </label>
           <p id="r">R</p>
-          <input name="speed1" id="speed1" onchange="fetchvalue(this.value)" type="number" step=".01" min="0" max="213"
-            value="0"></input>
-          <input type="button" id="Run" value="Ausführen" name="Run" onclick="Stop()"></input>
+          <div id="direction"></div>
         </div>
-      </form>
-      <form action="get-trains">
-        <select onchange="getMaxSpeed()" name="trainSelect" id="trainSelect">
-          <option>Lade...</option>
-        </select>
+        <input type="button" id="Run" value="Ausführen" name="Run" onclick="Stop()"></input>
       </form>
     </div>
   </div>

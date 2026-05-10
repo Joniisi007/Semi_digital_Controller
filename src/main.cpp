@@ -246,7 +246,7 @@ void setup()
   WiFi.begin(ssid, passwort); // WiFi-Verbindung herstellen
   // warten bis Verbindung steht
   int count = 0;
-  while (WiFi.status() != WL_CONNECTED && count < 30)
+  while (WiFi.status() != WL_CONNECTED && count < 60)
   {
     Serial.print(".");
     delay(500);
