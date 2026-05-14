@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  size: 15%;
+  size: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -146,9 +146,10 @@ p {
     grid-template-columns: repeat();
     background-color: gray;
     padding: 5px;
+    padding-right: 0;
     width: 100%;
   }
-  #content{
+  #content {
     width: 100%;
   }
 
@@ -175,8 +176,8 @@ p {
   }
   #Run {
     /* padding: 15px; */
-    font-size: 30px;
-    padding: 20px;
+    font-size: 25px;
+    padding: 15px;
   }
   #trainSelect {
     font-size: 20px;
@@ -192,9 +193,9 @@ p {
     height: 100%;
     width: 100%;
     margin-top: 10px;
-    padding-top: 20px;
-    padding-left: 10px;
-    padding-bottom: 50px;
+    padding-top: 10px;
+    padding-left: 0px; /*Test  */
+    padding-bottom: 30px;
     margin: 0;
   }
   #controlls {
@@ -216,6 +217,7 @@ p {
     display: flex;
     flex-direction: column;
     padding-top: 140px;
+    width: fit-content;
   }
   #speed1 {
     background: transparent;
@@ -223,27 +225,27 @@ p {
     font-size: 25px;
   }
   #forward {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background-color: transparent;
-  padding-left: 60px;
-}
-#forward_icon {
-  width: 35px;
-  height: 31px;
-  /* filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg)
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    padding-left: 60px;
+  }
+  #forward_icon {
+    width: 35px;
+    height: 31px;
+    /* filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg)
     brightness(104%) contrast(97%); */
-}
-#reverse {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background-color: transparent;
+  }
+  #reverse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
   }
   #reverse_icon {
     width: 35px;
@@ -266,7 +268,7 @@ p {
   p {
     font-size: 30px;
   }
-  option{
+  option {
     font-size: 20px;
   }
 
@@ -283,13 +285,13 @@ p {
     touch-action: none;
   }
   .thick_slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px; /* Breite des Knopfes */
-  height: 200px; /* Höhe des Knopfes */
-  background: #2ecc71; /* Deine Akzentfarbe (z.B. passend zum Ausführen-Button) */
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px; /* Breite des Knopfes */
+    height: 200px; /* Höhe des Knopfes */
+    background: #2ecc71; /* Deine Akzentfarbe (z.B. passend zum Ausführen-Button) */
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
 }
