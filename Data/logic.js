@@ -69,13 +69,25 @@ function Stop() {
 function changedirection(direction) {
   bderction = true;
   document.getElementById("speed1").value = 0;
-  // document.getElementById("reverse").value = 0;
+
+  document.getElementById("reverse").style.filter =
+    "invert(0%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%)";
+  document.getElementById("forward").style.filter =
+    "invert(0%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%)";
+
   if (direction == "reverse") {
     bderction = false;
+
+    document.getElementById("reverse").style.filter =
+      "invert(30%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%)";
+    fetch("/get?reverse=" + bderction);
   } else {
     bderction = true;
+    document.getElementById("forward").style.filter =
+      "invert(30%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%)";
+    fetch("/get?forward=" + bderction);
   }
-  fetch("/get?reverse=" + bderction);
+
   fetch("/get?speed1=0");
 }
 

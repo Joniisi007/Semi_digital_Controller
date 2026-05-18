@@ -58,6 +58,10 @@ void speedControl()
   {
     localchanel = 1;
   }
+  else
+  {
+    localchanel = 0;
+  }
   if (emergancy == false)
   {
     ledcWrite(localchanel, speed);
@@ -102,7 +106,8 @@ void Serverinit()
 
   server.on("/get", HTTP_GET, [](AsyncWebServerRequest *request)
             {
-              char *reverseParam = "direction";
+              char *reverseParam = "reverse";
+              char *forwardParam = "forward";
               if (request->hasParam(Speed1))
               {
                 speedString = request->getParam(Speed1)->value();
@@ -114,7 +119,15 @@ void Serverinit()
               }
               if (request->hasParam(reverseParam))
               {
-                reverse = request->getParam(reverseParam)->value();
+                Serial.println("Reverse");
+                reverse = true;
+                ledcWrite(0, 0);
+                ledcWrite(1, 0);
+              }
+              if (request->hasParam(forwardParam))
+              {
+                Serial.println("Forward");
+                reverse = false;
                 ledcWrite(0, 0);
                 ledcWrite(1, 0);
               }

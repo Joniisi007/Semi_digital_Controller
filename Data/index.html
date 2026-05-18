@@ -33,10 +33,10 @@
         <div id="controlls">
           <input name="speed1" id="speed1" onchange="fetchvalue(this.value)" type="number" step=".01" min="0" max="213" value="0"></input>
           <div id="direction">
-            <button name="direction" id="reverse" onclick="changedirection('reverse')">
+            <button type="button" name="reverse" id="reverse" onclick="changedirection('reverse')">
               <img id="reverse_icon" src="reverse_icon.svg" height="20px" width="20px">
             </button>
-            <button name="direction" id="forward" onclick="changedirection('forward')" img="">
+            <button type="button" name="forward" id="forward" onclick="changedirection('forward')" >
               <img id="forward_icon" src="forward_icon.svg" height="20px" width="20px">
             </button>
           <div id="direction"></div>

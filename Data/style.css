@@ -31,7 +31,7 @@ input {
   z-index: 2;
   display: none;
   background-color: rgba(0, 130, 74, 0.925);
-  padding-right: 3%;
+  /* padding-right: 3%; */
   padding-bottom: 46%;
   width: 6%;
 }
@@ -146,8 +146,9 @@ p {
     grid-template-columns: repeat();
     background-color: gray;
     padding: 5px;
+    padding-left: 0;
     padding-right: 0;
-    width: 100%;
+    /* width: 95%; */
   }
   #content {
     width: 100%;
@@ -195,7 +196,7 @@ p {
     margin-top: 10px;
     padding-top: 10px;
     padding-left: 0px; /*Test  */
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     margin: 0;
   }
   #controlls {
@@ -217,7 +218,7 @@ p {
     display: flex;
     flex-direction: column;
     padding-top: 140px;
-    width: fit-content;
+    width: 100%;
   }
   #speed1 {
     background: transparent;
@@ -236,8 +237,8 @@ p {
   #forward_icon {
     width: 35px;
     height: 31px;
-    /* filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg)
-    brightness(104%) contrast(97%); */
+    /* filter: invert(30%) sepia(51%) saturate(2878%) hue-rotate(346deg)
+      brightness(104%) contrast(97%); */
   }
   #reverse {
     display: flex;
