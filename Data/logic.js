@@ -34,7 +34,8 @@ function fetchvalue(value) {
     document.getElementById("Train_Controll").style.backgroundColor =
       "lightgreen";
   } else {
-    document.getElementById("Train_Controll").style.backgroundColor = "white";
+    document.getElementById("Train_Controll").style.backgroundColor =
+      "transparent";
   }
 }
 
@@ -59,9 +60,10 @@ function Stop() {
     document.getElementById("Run").style.backgroundColor = "green";
     if (document.getElementById("speed1").value > 0) {
       document.getElementById("Train_Controll").style.backgroundColor =
-        "lightgreen";
+        "#11e7117e";
     } else {
-      document.getElementById("Train_Controll").style.backgroundColor = "white";
+      document.getElementById("Train_Controll").style.backgroundColor =
+        "transparent";
     }
   }
 }
@@ -71,20 +73,20 @@ function changedirection(direction) {
   document.getElementById("speed1").value = 0;
 
   document.getElementById("reverse").style.filter =
-    "invert(0%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%)";
+    "invert(50%) sepia(10%) saturate(28%) hue-rotate(346deg) brightness(104%) contrast(97%)";
   document.getElementById("forward").style.filter =
-    "invert(0%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%)";
+    "invert(50%) sepia(10%) saturate(28%) hue-rotate(346deg) brightness(104%) contrast(97%)";
 
   if (direction == "reverse") {
     bderction = false;
 
     document.getElementById("reverse").style.filter =
-      "invert(30%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%)";
+      "invert(30%) sepia(60%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(600%)";
     fetch("/get?reverse=" + bderction);
   } else {
     bderction = true;
     document.getElementById("forward").style.filter =
-      "invert(30%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%)";
+      "invert(30%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(600%)";
     fetch("/get?forward=" + bderction);
   }
 
