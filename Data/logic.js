@@ -32,19 +32,19 @@ function fetchvalue(value) {
   fetch("/get?speed1=" + value);
   if (value > 0) {
     document.getElementById("Train_Controll").style.backgroundColor =
-      "lightgreen";
+      "#00ff001f";
   } else {
     document.getElementById("Train_Controll").style.backgroundColor =
       "transparent";
   }
 }
-
+//Slider Value to Textfield and fetch
 function setSliderValue(speed) {
   console.log(speed);
   document.getElementById("speed1").value = speed;
   fetchvalue(speed);
 }
-
+//Emengancy Stop
 function Stop() {
   console.log(fetch("/get?Run=0"));
   console.log(document.getElementById("speed1").value);
@@ -53,21 +53,22 @@ function Stop() {
     fetch("/get?speed1=" + 0);
     document.getElementById("Run").value = "Stopp";
     document.getElementById("Run").style.backgroundColor = "red";
-    document.getElementById("Train_Controll").style.backgroundColor = "#da3c3c";
+    document.getElementById("Train_Controll").style.backgroundColor =
+      "#9d15156e";
   } else {
     fetch("/get?speed1=" + document.getElementById("speed1").value);
     document.getElementById("Run").value = "Ausführen";
     document.getElementById("Run").style.backgroundColor = "green";
     if (document.getElementById("speed1").value > 0) {
       document.getElementById("Train_Controll").style.backgroundColor =
-        "#11e7117e";
+        "#00ff001f";
     } else {
       document.getElementById("Train_Controll").style.backgroundColor =
         "transparent";
     }
   }
 }
-
+//Direction
 function changedirection(direction) {
   bderction = true;
   document.getElementById("speed1").value = 0;
@@ -92,10 +93,15 @@ function changedirection(direction) {
 
   fetch("/get?speed1=0");
 }
-
+//Max Speed for Slider and Textfield
 function getMaxSpeed() {
   console.log(document.getElementById("trainSelect").selectedIndex);
   document.getElementById("speed1").max =
+    maxSpeed.Train[
+      document.getElementById("trainSelect").selectedIndex
+    ].max_speed;
+
+  document.getElementById("sliders").max =
     maxSpeed.Train[
       document.getElementById("trainSelect").selectedIndex
     ].max_speed;
@@ -118,7 +124,7 @@ function Menu(Origin) {
 
 //Train.HTML
 function edit(index) {
-  document.getElementById("edit").style.display = "block";
+  document.getElementById("edit").style.display = "flex";
   fetch("/get-trains")
     .then((res) => res.json())
     .then((data) => {
@@ -130,12 +136,11 @@ function edit(index) {
 
 function save() {
   console.log(document.getElementById("edit_type").value);
-  // console.log(fetch("/get_edit"));
   document.getElementById("edit").style.display = "none";
   fetch("/edit_train");
 }
 function add() {
-  document.getElementById("edit").style.display = "block";
+  document.getElementById("edit").style.display = "flex";
   let id = document.getElementById("Trainlist").rows.length;
   document.getElementById("add").checked = "checked";
   document.getElementById("edit_id").value = id;
@@ -168,7 +173,7 @@ function populateTrainList() {
           train.max_speed +
           "</td>" +
           "<td id='Function'>" +
-          '<button type="button" id="edit' +
+          '<button type="button" class="edit_button" id="edit' +
           Trains.Train[index].id +
           '" onclick="edit(' +
           index +
