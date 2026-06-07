@@ -103,6 +103,13 @@ void Serverinit()
             { request->send(LittleFS, "/reverse_icon.svg", "image/svg+xml"); });
   server.on("/forward_icon.svg", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(LittleFS, "/forward_icon.svg", "image/svg+xml"); });
+<<<<<<< HEAD
+=======
+  server.on("/arrow_right.svg", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/arrow_right.svg", "image/svg+xml"); });
+  server.on("/close_icon.svg", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/close_icon.svg", "image/svg+xml"); });
+>>>>>>> develop
 
   server.on("/get", HTTP_GET, [](AsyncWebServerRequest *request)
             {

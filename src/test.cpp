@@ -1,5 +1,9 @@
 #if 0
+<<<<<<< HEAD
 
+=======
+//test
+>>>>>>> develop
 #include <Arduino.h>
 #include <FS.h>
 #include <SD_MMC.h> // Wichtig: Andere Bibliothek als vorher!

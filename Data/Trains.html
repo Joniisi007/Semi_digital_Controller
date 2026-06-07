@@ -3,13 +3,21 @@
 <script src="logic.js"></script>
 <link rel="stylesheet" href="trainlist_style.css">
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
 <head>
   <link rel="icon" type="image/x-icon" href="/train_icon.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <div id="Header">
     <button type="button" onclick="Menu('button')" id="Menu" name="menu">
+<<<<<<< HEAD
       <img src="menuIcon.svg" height="15px" width="15px">
+=======
+      <img src="menuIcon.svg" height="20px" width="20px">
+>>>>>>> develop
     </button>
     <h1>Platten Kontroller</h1>
   </div>
@@ -17,6 +25,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
   <div id="content" onclick="Menu('div')">
   <div id="MenuContent">
     <a href="Trains.html">Züge bearbeiten</a>
@@ -34,6 +43,48 @@
     </form>
   </div>
 
+=======
+ <div id="MenuContent">
+      <button id="close" onclick="Menu('div')">
+        <img src="close_icon.svg" height="25px" width="25px">
+      </button>
+    <form action="/" >
+      <button class="call_site">
+        Home
+        <img src="arrow_right.svg" height="20px" width="20px"> 
+      </button>
+    </form>
+    <div id="devider"></div>
+    <form action="Trains.html">
+      <button class="call_site">Züge bearbeiten
+          <img src="arrow_right.svg" height="20px" width="20px">
+      </button>
+    </form>
+  </div>
+    <div id="Error">
+    <b id="ErrorText">Diese Seite ist auf Querformat ausgerichtet. </b>
+    <b id="ErrorText">Bitte drehen Sie Ihr Gerät.</b>
+  </div>
+   <div id="edit" style="display: none; z-index: 2;">
+    <form action="edit_train" id="edit_form">
+      <div id="input">
+      <label for="edit_id">ID:</label>
+      <input type="text" class="edit_input" id="edit_id" name="edit_id" readonly></input>
+      <label for="edit_type">Beschreibung:</label>
+      <input type="text" class="edit_input" id="edit_type" name="edit_type"></input>
+      <label for="edit_speed">Geschwindigkeit:</label>
+      <input type="number" class="edit_input" id="edit_speed" name="edit_speed"></input>
+      </div>
+      <div id="edit_buttons">
+      <button id="Cancel" class="edit_button" value="Abbrechen" onclick="off()">Abbrechen</button>
+      <button id="Save" class="edit_button" name="Save" value="Speichern" onclick="save()">Speichern</button>
+      <button id="Del" class="edit_button" name="Del" value="Löschen" onclick="Save()">Löschen</button>
+      </div>
+      <input type="checkbox" name="isAdd" id="isAdd" style="display: none;" checked=""></input>
+    </form>
+  </div>
+  <div id="content" onclick="Menu('div')">
+>>>>>>> develop
   <div id="Table">
     <script>
       populateTrainList();

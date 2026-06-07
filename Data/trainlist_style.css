@@ -1,16 +1,28 @@
 body {
   margin: 0;
+<<<<<<< HEAD
+=======
+  
+>>>>>>> develop
   size: 15%;
 }
 #edit {
   position: fixed;
+<<<<<<< HEAD
   display: none;
+=======
+  display: flex;
+  flex-direction: space-between;
+  justify-content: center;
+  align-items: center;
+>>>>>>> develop
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+<<<<<<< HEAD
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
   cursor: pointer;
@@ -18,6 +30,58 @@ body {
 
 #Header {
   display: flex;
+=======
+  background-color: rgba(112, 112, 112, 0.822);
+  z-index: 2;
+  cursor: pointer;
+}
+#edit_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  background: transparent;
+  width: 40%;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+#edit_buttons {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  width: 90%;
+}
+
+#input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  background-color: rgba(255, 255, 255, 0.596);
+  border-radius: 4px;
+  padding: 20px;
+}
+.edit_input {
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+}
+.edit_button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+#Header {
+  display: flex;
+  flex-direction: space-between;
+>>>>>>> develop
   grid-template-columns: repeat();
   background-color: gray;
 }
@@ -26,11 +90,22 @@ body {
 }
 #MenuContent {
   visibility: hidden;
+<<<<<<< HEAD
   display: none;
   background-color: rgb(0, 130, 74);
   padding-right: 2%;
   padding-bottom: 90%;
   width: 6%;
+=======
+  display: flex;
+  align-content: start;
+  position: fixed;
+  background-color: rgb(0, 130, 74);
+  width: 6%;
+  z-index: 2;
+  height: 100%;
+  width: fit-content;
+>>>>>>> develop
 }
 #Menu {
   size: 0%;
@@ -38,6 +113,11 @@ body {
   height: 2%;
   width: 2%;
   align-content: center;
+<<<<<<< HEAD
+=======
+  border: none;
+  background-color: transparent;
+>>>>>>> develop
 }
 h1 {
   margin-top: 0;
@@ -70,6 +150,7 @@ p {
   justify-content: center;
   align-items: center;
 }
+<<<<<<< HEAD
 
 table,
 th,
@@ -129,16 +210,200 @@ h1
   display: flex;
   justify-content: center;
   align-items: center;
+=======
+#Error {
+  visibility: hidden;
+  display: none;
+}
+#close {
+  background: transparent;
+  border: none;
+  justify-self: flex-end;
+  height: fit-content;
+}
+
+#devider {
+  width: 95%;
+  border-bottom: 2px solid black;
+  border-radius: 1px;
+}
+
+.call_site {
+  width: 90%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+
+  text-align: start;
+  font-size: 20px;
+
+  background: transparent;
+>>>>>>> develop
 }
 
 table,
 th,
 td {
+<<<<<<< HEAD
   font-size: 30px;
+=======
+>>>>>>> develop
   border-left: 1px solid black;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
   border-collapse: collapse;
   padding-right: 3px;
 }
+<<<<<<< HEAD
+=======
+td {
+  height: 5%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+/* Phone  && Horizontal */
+@media (orientation: landscape) and (min-width: 800px) {
+  #MenuContent {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    background-color: rgb(0, 130, 74);
+    padding-bottom: 15px;
+    padding-top: 5%;
+    height: fit-content;
+    width: 100%;
+    touch-action: none;
+  }
+  #devider {
+    width: 96%;
+    border-bottom: 2px solid black;
+    border-radius: 1px;
+    margin-left: 6px;
+  }
+  #Menu {
+    size: 0%;
+    align-self: center;
+    margin-top: 0px;
+    height: 45px;
+    width: 45px;
+    align-content: center;
+    margin-right: 12px;
+    margin-left: 4px;
+    border: 0;
+  }
+  #close {
+    background: transparent;
+    border: none;
+    justify-self: flex-end;
+    padding-right: 4.5%;
+    padding-bottom: 3%;
+    padding-top: 1%;
+    padding-left: 6%;
+  }
+  .call_site {
+    width: 95%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 10px;
+    margin-left: 10px;
+    border: 0;
+
+    text-align: start;
+    font-size: 30px;
+
+    background: transparent;
+  }
+  a {
+    font-size: 30px;
+    padding-bottom: 15px;
+  }
+  h1 {
+    font-size: 45px;
+  }
+  /* First Layer */
+  #Table {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  #add {
+    align-self: start;
+    font-size: 15px;
+  }
+
+  #Function {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  table,
+  th,
+  td {
+    font-size: 30px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+    padding-right: 3px;
+  }
+}
+
+/* Phone  && Vertical */
+@media screen and (orientation: portrait) and (max-width: 600px) {
+  #Header {
+    display: flex;
+    flex-direction: center;
+    grid-template-columns: repeat();
+    background-color: gray;
+    padding: 5px;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+  #Menu {
+    size: 0%;
+    margin-top: 0px;
+    height: 45px;
+    width: 45px;
+    margin-right: 12px;
+    margin-left: 4px;
+    border: 0;
+  }
+  #content {
+    visibility: hidden;
+    display: none;
+  }
+  #Error {
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+  }
+  #ErrorText {
+    font-size: 20px;
+    color: rgb(255, 0, 0);
+    text-align: center;
+    margin-top: 50%;
+  }
+
+  h1 {
+    align-self: center;
+    font-size: 40px;
+  }
+>>>>>>> develop
 }

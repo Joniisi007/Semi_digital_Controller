@@ -13,6 +13,11 @@ with Version 2.0.0
 Img: 
 https://www.citypng.com/photo/19402/transparent-train-black-round-icon-sign
 https://www.svgrepo.com/svg/501089/arrow-double-start
+<<<<<<< HEAD
+=======
+https://www.svgrepo.com/svg/500758/arrow-right-bold
+https://www.svgrepo.com/svg/500512/close-bold
+>>>>>>> develop
 
 License:
 https://www.svgrepo.com/page/licensing/#MIT

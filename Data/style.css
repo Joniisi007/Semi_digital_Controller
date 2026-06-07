@@ -2,6 +2,11 @@ body {
   margin: 0;
   size: 100%;
   font-family: Arial, Helvetica, sans-serif;
+<<<<<<< HEAD
+=======
+  background-color: #121212;
+  
+>>>>>>> develop
 }
 
 input {
@@ -9,7 +14,15 @@ input {
   margin: 2px;
   border: none;
 }
+<<<<<<< HEAD
 
+=======
+#trainSelect {
+  background: transparent;
+  border: none;
+  color: #888786;
+}
+>>>>>>> develop
 #Header {
   display: flex;
   grid-template-columns: repeat();
@@ -41,13 +54,31 @@ input {
   height: 26px;
   width: 29px;
   align-content: center;
+<<<<<<< HEAD
   margin-right: 12px;
   margin-left: 4px;
+=======
+  align-self: center;
+  margin-right: 12px;
+  margin-left: 4px;
+  background-color: transparent;
+}
+#close {
+  margin: 0;
+  padding: 0;
+  border: none;
+  height: 0;
+  width: 0;
+>>>>>>> develop
 }
 #Train_Controll {
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   background-color: white;
+=======
+  background-color: transparent;
+>>>>>>> develop
   align-items: center;
   width: fit-content;
   height: 100%;
@@ -88,8 +119,14 @@ input {
 #forward_icon {
   width: 25px;
   height: 21px;
+<<<<<<< HEAD
   /* filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg)
     brightness(104%) contrast(97%); */
+=======
+  /* light gray */
+  filter: invert(50%) sepia(10%) saturate(28%) hue-rotate(346deg)
+    brightness(104%) contrast(97%);
+>>>>>>> develop
 }
 #reverse {
   display: flex;
@@ -102,8 +139,28 @@ input {
 #reverse_icon {
   width: 25px;
   height: 21px;
+<<<<<<< HEAD
   /* filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg)
     brightness(104%) contrast(97%); */
+=======
+  /* light gray */
+  filter: invert(50%) sepia(10%) saturate(28%) hue-rotate(346deg)
+    brightness(104%) contrast(97%);
+}
+#speed1 {
+  background: transparent;
+  /* light gray */
+  color: #888786;
+}
+
+#direction {
+  padding-top: 5px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+>>>>>>> develop
 }
 
 .thick_slider {
@@ -138,6 +195,13 @@ a {
 p {
   margin: 0.1%;
 }
+<<<<<<< HEAD
+=======
+b {
+  /*  Light Gray Text  */
+  color: #888786;
+}
+>>>>>>> develop
 /*Phone*/
 @media (max-width: 600px) {
   #Header {
@@ -153,14 +217,32 @@ p {
   #content {
     width: 100%;
   }
+<<<<<<< HEAD
 
   #MenuContent {
     visibility: hidden;
     display: none;
+=======
+  #close {
+    background: transparent;
+    border: none;
+    justify-self: flex-end;
+    padding-right: 17%;
+    padding-bottom: 9%;
+    padding-top: 1%;
+    padding-left: 6%;
+  }
+
+  #MenuContent {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+>>>>>>> develop
     position: fixed;
     background-color: rgb(0, 130, 74);
     padding-left: 1%;
     padding-right: 2%;
+<<<<<<< HEAD
     padding-bottom: 201%;
     width: 50%;
     z-index: 2;
@@ -174,6 +256,27 @@ p {
     align-content: center;
     margin-right: 12px;
     margin-left: 4px;
+=======
+    padding-bottom: 15px;
+    padding-top: 5%;
+    height: fit-content;
+    width: 100%;
+    z-index: 2;
+  }
+  #devider {
+    width: 95%;
+    border-bottom: 2px solid black;
+    border-radius: 1px;
+  }
+  #Menu {
+    size: 0%;
+    margin-top: 0px;
+    height: 45px;
+    width: 45px;
+    margin-right: 12px;
+    margin-left: 4px;
+    border: 0;
+>>>>>>> develop
   }
   #Run {
     /* padding: 15px; */
@@ -184,11 +287,20 @@ p {
     font-size: 20px;
     padding: 5px;
     margin-bottom: 5px;
+<<<<<<< HEAD
+=======
+    background: transparent;
+    border: none;
+    color: #888786;
+>>>>>>> develop
   }
   #Train_Controll {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     background-color: white;
+=======
+>>>>>>> develop
     align-items: center;
     width: fit-content;
     height: 100%;
@@ -206,6 +318,7 @@ p {
     align-items: center;
     justify-content: center;
   }
+<<<<<<< HEAD
   #direction {
     padding-top: 5px;
     padding-bottom: 20px;
@@ -214,6 +327,9 @@ p {
     align-items: center;
     justify-content: center;
   }
+=======
+
+>>>>>>> develop
   #get {
     display: flex;
     flex-direction: column;
@@ -237,8 +353,11 @@ p {
   #forward_icon {
     width: 35px;
     height: 31px;
+<<<<<<< HEAD
     /* filter: invert(30%) sepia(51%) saturate(2878%) hue-rotate(346deg)
       brightness(104%) contrast(97%); */
+=======
+>>>>>>> develop
   }
   #reverse {
     display: flex;
@@ -251,8 +370,26 @@ p {
   #reverse_icon {
     width: 35px;
     height: 31px;
+<<<<<<< HEAD
     /* filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg)
       brightness(104%) contrast(97%); */
+=======
+  }
+  .call_site {
+    width: 90%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 10px;
+    border: 0;
+
+    text-align: start;
+    font-size: 30px;
+
+    background: transparent;
+>>>>>>> develop
   }
   a {
     font-size: 30px;
@@ -265,6 +402,11 @@ p {
   b {
     font-size: 30px;
     margin-bottom: 10px;
+<<<<<<< HEAD
+=======
+    /*  Light Gray Text  */
+    color: #888786;
+>>>>>>> develop
   }
   p {
     font-size: 30px;
@@ -293,6 +435,14 @@ p {
     background: #2ecc71; /* Deine Akzentfarbe (z.B. passend zum Ausführen-Button) */
     border-radius: 10px;
     cursor: pointer;
+<<<<<<< HEAD
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+=======
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
+  }
+  /* Light Gray */
+  .thick_slider {
+    background: #474747; /* Hintergrundfarbe des Balkens */
+>>>>>>> develop
   }
 }
