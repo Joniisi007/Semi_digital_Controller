@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="/train_icon.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Platten Kontroller</title>
+</head>
+
+<body>
+  <div id="MenuContent">
+    <button id="close" onclick="Menu('div')">
+        <img src="close_icon.svg" height="25px" width="25px">
+      </button>
+    <form action="/" >
+      <button class="call_site">
+        Home1
+        <img src="arrow_right.svg" height="20px" width="20px"> 
+      </button>
+    </form>
+    <div id="devider"></div>
+    <form action="Trains.html">
+      <button class="call_site">Züge bearbeiten
+          <img src="arrow_right.svg" height="20px" width="20px">
+      </button>
+    </form>
+  </div>
+  <div id="Header">
+    <button type="button" onclick="Menu('button')" id="Menu" name="menu">
+      <img src="menuIcon.svg" height="20px" width="20px">
+    </button>
+    <h1>Platten Controller</h1>
+  </div>
+  <div id="content" onclick="Menu('div')">
+    <div id="Train_Controll">
+      <b>Fahrregler Gleis 1</b>
+      <form action="get-trains">
+        <select onchange="getMaxSpeed()" name="trainSelect" id="trainSelect">
+          <option>Lade...</option>
+        </select>
+      </form>
+      <form action="get" id="get">
+        <input id="sliders" class="thick_slider" type="range" min="0" max="213" value="0" step=".01"></input>
+        <div id="controlls">
+          <input name="speed1" id="speed1" onchange="fetchvalue(this.value)" type="number" step=".01" min="0" max="213" value="0"></input>
+          <div id="direction">
+            <button type="button" name="reverse" id="reverse" onclick="changedirection('reverse')">
+              <img id="reverse_icon" src="reverse_icon.svg" height="20px" width="20px">
+            </button>
+            <button type="button" name="forward" id="forward" onclick="changedirection('forward')" >
+              <img id="forward_icon" src="forward_icon.svg" height="20px" width="20px">
+            </button>
+          <div id="direction"></div>
+        </div>
+        <input type="button" id="Run" value="Ausführen" name="Run" onclick="Stop()"></input>
+      </form>
+    </div>
+  </div>
+  <script src="logic.js"></script>
+</body>
+
+</html>
