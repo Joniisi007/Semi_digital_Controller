@@ -1,36 +1,20 @@
 body {
   margin: 0;
-<<<<<<< HEAD
-=======
   
->>>>>>> develop
   size: 15%;
 }
 #edit {
   position: fixed;
-<<<<<<< HEAD
-  display: none;
-=======
   display: flex;
   flex-direction: space-between;
   justify-content: center;
   align-items: center;
->>>>>>> develop
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-<<<<<<< HEAD
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
-  cursor: pointer;
-}
-
-#Header {
-  display: flex;
-=======
   background-color: rgba(112, 112, 112, 0.822);
   z-index: 2;
   cursor: pointer;
@@ -81,7 +65,6 @@ body {
 #Header {
   display: flex;
   flex-direction: space-between;
->>>>>>> develop
   grid-template-columns: repeat();
   background-color: gray;
 }
@@ -90,13 +73,6 @@ body {
 }
 #MenuContent {
   visibility: hidden;
-<<<<<<< HEAD
-  display: none;
-  background-color: rgb(0, 130, 74);
-  padding-right: 2%;
-  padding-bottom: 90%;
-  width: 6%;
-=======
   display: flex;
   align-content: start;
   position: fixed;
@@ -105,7 +81,6 @@ body {
   z-index: 2;
   height: 100%;
   width: fit-content;
->>>>>>> develop
 }
 #Menu {
   size: 0%;
@@ -113,11 +88,8 @@ body {
   height: 2%;
   width: 2%;
   align-content: center;
-<<<<<<< HEAD
-=======
   border: none;
   background-color: transparent;
->>>>>>> develop
 }
 h1 {
   margin-top: 0;
@@ -150,67 +122,6 @@ p {
   justify-content: center;
   align-items: center;
 }
-<<<<<<< HEAD
-
-table,
-th,
-td {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
-  border-collapse: collapse;
-  padding-right: 3px;
-}
-/* Phone */
-@media (max-width: 600px) {
-#MenuContent {
-  visibility: hidden;
-  display: none;
-  position: fixed;
-  background-color: rgb(0, 130, 74);
-  padding-left: 1%;
-  padding-right: 2%;
-  padding-bottom: 201%;
-  width: 50%;
-  z-index: 2;
-}
-#Menu {
-  size: 0%;
-  margin-top: 2.5%;
-  margin-left:0.5%;
-  height: 10%;
-  width: 7%;
-  align-content: center;
-}
-a{
-  font-size: 30px;
-  padding-bottom: 15px;
-}
-h1
-{
-  font-size: 45px;
-}
-/* First Layer */
-#Table {
-  padding-left: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  height: fit-content;
-}
-
-#add {
-  align-self: start;
-  font-size: 15px;
-}
-
-#Function {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-=======
 #Error {
   visibility: hidden;
   display: none;
@@ -243,24 +154,17 @@ h1
   font-size: 20px;
 
   background: transparent;
->>>>>>> develop
 }
 
 table,
 th,
 td {
-<<<<<<< HEAD
-  font-size: 30px;
-=======
->>>>>>> develop
   border-left: 1px solid black;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
   border-collapse: collapse;
   padding-right: 3px;
 }
-<<<<<<< HEAD
-=======
 td {
   height: 5%;
   padding-top: 5px;
@@ -405,5 +309,4 @@ td {
     align-self: center;
     font-size: 40px;
   }
->>>>>>> develop
 }
