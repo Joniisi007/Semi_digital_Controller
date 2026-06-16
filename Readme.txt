@@ -1,3 +1,13 @@
+This project is a way to use your analog modell train layout with a digital interface frome your phone or pc. 
+Currently a esp32 hostes the website local.
+
+Hardware: 
+ESP32,
+H-Brige. i recoment a IBT_2
+and a Trafo.
+
+The Documentation is currently only in German 
+
 current Version: prereleas 0.0.1
 Comming next: 
 with Version 1.0.0
