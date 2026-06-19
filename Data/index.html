@@ -42,6 +42,10 @@
         </select>
       </form>
       <form action="get" id="get">
+        <select name="pins" id="pins" onchange="change_pins()">
+          <option>22,21</option>
+          <option>13,14</option>
+        </select>
         <input id="sliders" class="thick_slider" type="range" min="0" max="213" value="0" step=".01"></input>
         <div id="controlls">
           <input name="speed1" id="speed1" onchange="fetchvalue(this.value)" type="number" step=".01" min="0" max="213" value="0"></input>

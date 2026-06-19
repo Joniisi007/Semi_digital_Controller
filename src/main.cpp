@@ -45,31 +45,52 @@ using SpiRamJsonDocument = BasicJsonDocument<SpiRamAllocator>;
 
 int pin1 = 22;
 int pin2 = 21;
+int pin3 = 13;
+int pin4 = 14;
 
 double speed = 0.00;
 
 String speedString = "0.00";
 String testread = "";
+String currentpin = "";
 
 void speedControl()
 {
   int localchanel = 0;
-  if (reverse == true)
+  if (currentpin == "22,21")
   {
-    localchanel = 1;
+    if (reverse == true)
+    {
+      localchanel = 1;
+    }
+    else
+    {
+      localchanel = 0;
+    }
   }
-  else
+  else if (currentpin == "13,14")
   {
-    localchanel = 0;
+    if (reverse == true)
+    {
+      localchanel = 2;
+    }
+    else
+    {
+      localchanel = 3;
+    }
   }
+  Serial.println("localchanel");
+  Serial.println(localchanel);
   if (emergancy == false)
   {
     ledcWrite(localchanel, speed);
   }
   else
   {
-    ledcWrite(0, 0);
-    ledcWrite(1, 0);
+    for (int i = 0; i < 4; i++)
+    {
+      ledcWrite(i, 0);
+    }
   }
   Serial.println(speed);
 }
@@ -112,6 +133,13 @@ void Serverinit()
             {
               char *reverseParam = "reverse";
               char *forwardParam = "forward";
+              char *pins         = "pins";
+              if (request->hasParam(pins))
+              {
+                Serial.println("Pins: ");
+                currentpin = request->getParam(pins)->value();
+                Serial.println(currentpin);
+              }
               if (request->hasParam(Speed1))
               {
                 speedString = request->getParam(Speed1)->value();
@@ -239,9 +267,14 @@ void setup()
   Serial.begin(115200); // serielle Schnittstelle initialisieren
 
   ledcSetup(0, 16000, 8); // Channel 16 kHz frequency, 8-bit resolution
+  ledcSetup(2, 16000, 8); // Channel 16 kHz frequency, 8-bit resolution
+  ledcSetup(3, 16000, 8); // Channel 16 kHz frequency, 8-bit resolution
   ledcAttachPin(pin1, 0);
   ledcAttachPin(pin2, 1);
+  ledcAttachPin(pin3, 2);
+  ledcAttachPin(pin4, 3);
   ledcWrite(0, speed);
+  ledcWrite(2, speed);
 
   if (!LittleFS.begin())
   {

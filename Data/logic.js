@@ -3,6 +3,8 @@ let run = false;
 //test
 let maxSpeed;
 
+let currentspeed = [[0, 0.0], [(0, 0.0)]];
+
 let slider = document.getElementById("sliders");
 
 // maxSpeed = fetch("/get-trains").then((res) => res.json());
@@ -26,9 +28,35 @@ window.onload = () => {
     });
 };
 
+function change_pins() {
+  let pins = document.getElementById("pins").value;
+  if (pins == "13,14") {
+    currentspeed[0][0] = 13;
+    currentspeed[0][1] = document.getElementById("speed1").value;
+    if (currentspeed[0][1] != currentspeed[1][1]) {
+      document.getElementById("speed1").value = currentspeed[1][1];
+      document.getElementById("sliders").value = currentspeed[1][1];
+      fetch("/get?pins=" + pins);
+      fetch("/get?speed1=" + currentspeed[1][1]);
+    }
+  } else {
+    currentspeed[1][0] = 22;
+    currentspeed[1][1] = document.getElementById("speed1").value;
+    if (currentspeed[1][1] != currentspeed[0][1]) {
+      document.getElementById("speed1").value = currentspeed[0][1];
+      document.getElementById("sliders").value = currentspeed[0][1];
+      fetch("/get?pins=" + pins);
+      fetch("/get?speed1=" + currentspeed[0][1]);
+    }
+  }
+  console.log(currentspeed);
+}
+
 function fetchvalue(value) {
   console.log(value);
   document.getElementById("reverse").value = value;
+  pins = document.getElementById("pins").value;
+  fetch("/get?pins=" + pins);
   fetch("/get?speed1=" + value);
   if (value > 0) {
     document.getElementById("Train_Controll").style.backgroundColor =
@@ -71,6 +99,10 @@ function Stop() {
 //Direction
 function changedirection(direction) {
   bderction = true;
+
+  let pins = document.getElementById("pins").value;
+  fetch("/get?pins=" + pins);
+
   document.getElementById("speed1").value = 0;
 
   document.getElementById("reverse").style.filter =
