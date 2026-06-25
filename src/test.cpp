@@ -1,5 +1,5 @@
 #if 0
-//test
+
 #include <Arduino.h>
 #include <FS.h>
 #include <SD_MMC.h> // Wichtig: Andere Bibliothek als vorher!
