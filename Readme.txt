@@ -11,7 +11,6 @@ with Version 2.0.0
 
 
 Img: 
-https://www.citypng.com/photo/19402/transparent-train-black-round-icon-sign
 https://www.svgrepo.com/svg/501089/arrow-double-start
 <<<<<<< HEAD
 =======
