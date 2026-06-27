@@ -129,6 +129,7 @@ void Serverinit()
   server.on("/close_icon.svg", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(LittleFS, "/close_icon.svg", "image/svg+xml"); });
 
+
   server.on("/get", HTTP_GET, [](AsyncWebServerRequest *request)
             {
               char *reverseParam = "reverse";
