@@ -3,7 +3,10 @@ let run = false;
 //test
 let maxSpeed;
 
-let currentspeed = [[0, 0.0], [(0, 0.0)]];
+let currentspeed = [
+  [0, 0.0, false],
+  [0, 0.0, false],
+];
 
 let slider = document.getElementById("sliders");
 
