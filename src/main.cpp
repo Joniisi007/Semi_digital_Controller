@@ -135,6 +135,7 @@ void Serverinit()
               char *reverseParam = "reverse";
               char *forwardParam = "forward";
               char *pins         = "pins";
+              char *directions   = "direction";
               if (request->hasParam(pins))
               {
                 Serial.println("Pins: ");
@@ -163,6 +164,17 @@ void Serverinit()
                 reverse = false;
                 ledcWrite(0, 0);
                 ledcWrite(1, 0);
+              }
+              if (request->hasParam(directions))
+              {
+                if(request->getParam(directions)->value == true)
+                {
+                  Serial.println("reverse");
+                }
+                else if((request->getParam(directions)->value == false))
+                {
+                  Serial.println("Forwards");
+                }
               }
               speedControl();
               request->send(LittleFS, "/index.html"); });

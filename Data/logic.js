@@ -131,6 +131,7 @@ function changedirection(direction) {
   } else if ((pins = "22,21")) {
     currentspeed[1][2] = bderction;
   }
+  fetch("/get?direction="+bderction)
   fetch("/get?speed1=0");
 }
 //Max Speed for Slider and Textfield
