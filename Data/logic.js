@@ -126,6 +126,11 @@ function changedirection(direction) {
     fetch("/get?forward=" + bderction);
   }
 
+  if ((pins = "13,14")) {
+    currentspeed[0][2] = bderction;
+  } else if ((pins = "22,21")) {
+    currentspeed[1][2] = bderction;
+  }
   fetch("/get?speed1=0");
 }
 //Max Speed for Slider and Textfield
