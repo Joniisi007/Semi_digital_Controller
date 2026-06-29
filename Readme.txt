@@ -21,12 +21,12 @@ with Version 2.0.0
 
 
 Img: 
+https://www.svgrepo.com/svg/436572/train?edit=true by Streetmix
 https://www.svgrepo.com/svg/501089/arrow-double-start
-<<<<<<< HEAD
-=======
 https://www.svgrepo.com/svg/500758/arrow-right-bold
 https://www.svgrepo.com/svg/500512/close-bold
->>>>>>> develop
+https://www.svgrepo.com/svg/506784/add-square
 
 License:
 https://www.svgrepo.com/page/licensing/#MIT
+https://www.svgrepo.com/page/licensing/#CC%20Attribution
