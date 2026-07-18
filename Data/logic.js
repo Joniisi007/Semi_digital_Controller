@@ -3,11 +3,11 @@ let run = false;
 //test
 let maxSpeed;
 
-let Train_values = {
-  Train = 1,
-  speed = 0,
-  directione = false      // false = forwarde / true = backwards
-};
+// let Train_values = {
+//   Train = 0,
+//   speed = 0,
+//   directione = false      // false = forwarde / true = backwards
+// };
 
 let currentspeed = [
   [0, 0.0, false],
@@ -31,7 +31,6 @@ window.onload = () => {
       data.Train.forEach((train) => {
         let opt = document.createElement("option");
         opt.text = `${train.type} - ID: ${train.id}`;
-        maxSpeed = data;
         sel.add(opt);
       });
     });
@@ -137,22 +136,23 @@ function changedirection(direction) {
   } else if ((pins = "22,21")) {
     currentspeed[1][2] = bderction;
   }
-  fetch("/get?direction="+bderction)
+  fetch("/get?direction=" + bderction);
   fetch("/get?speed1=0");
 }
 //Max Speed for Slider and Textfield
-function getMaxSpeed() {
-  console.log(document.getElementById("trainSelect").selectedIndex);
-  document.getElementById("speed1").max =
-    maxSpeed.Train[
-      document.getElementById("trainSelect").selectedIndex
-    ].max_speed;
+// TO DELETE Cause its in the custom element now
+// function getMaxSpeed() {
+//   console.log(document.getElementById("trainSelect").selectedIndex);
+//   document.getElementById("speed1").max =
+//     maxSpeed.Train[
+//       document.getElementById("trainSelect").selectedIndex
+//     ].max_speed;
 
-  document.getElementById("sliders").max =
-    maxSpeed.Train[
-      document.getElementById("trainSelect").selectedIndex
-    ].max_speed;
-}
+//   document.getElementById("sliders").max =
+//     maxSpeed.Train[
+//       document.getElementById("trainSelect").selectedIndex
+//     ].max_speed;
+// }
 
 function Menu(Origin) {
   let visibility = "hidden";
