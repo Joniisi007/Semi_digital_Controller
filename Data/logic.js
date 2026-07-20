@@ -17,128 +17,128 @@ let currentspeed = [
 let slider = document.getElementById("sliders");
 
 // maxSpeed = fetch("/get-trains").then((res) => res.json());
-
+//
 // fetch('/get-trains').then((res) => res.json()).then(res => maxSpeed = res.)
+//
+// slider.oninput = () => setSliderValue(slider.value);
+//
+// window.onload = () => {
+//   fetch("/get-trains")
+//     .then((res) => res.json())
+//     .then((data) => {
+//       const sel = document.getElementById("trainSelect");
+//       sel.innerHTML = "";
+//       data.Train.forEach((train) => {
+//         let opt = document.createElement("option");
+//         opt.text = `${train.type} - ID: ${train.id}`;
+//         sel.add(opt);
+//       });
+//     });
+// };
 
-slider.oninput = () => setSliderValue(slider.value);
+// function change_pins() {
+//   let pins = document.getElementById("pins").value;
+//   if (pins == "13,14") {
+//     currentspeed[0][0] = 13;
+//     currentspeed[0][1] = document.getElementById("speed1").value;
+//     if (currentspeed[0][1] != currentspeed[1][1]) {
+//       document.getElementById("speed1").value = currentspeed[1][1];
+//       document.getElementById("sliders").value = currentspeed[1][1];
+//       fetch("/get?pins=" + pins);
+//       fetch("/get?speed1=" + currentspeed[1][1]);
+//     }
+//   } else {
+//     currentspeed[1][0] = 22;
+//     currentspeed[1][1] = document.getElementById("speed1").value;
+//     if (currentspeed[1][1] != currentspeed[0][1]) {
+//       document.getElementById("speed1").value = currentspeed[0][1];
+//       document.getElementById("sliders").value = currentspeed[0][1];
+//       fetch("/get?pins=" + pins);
+//       fetch("/get?speed1=" + currentspeed[0][1]);
+//     }
+//   }
+//   console.log(currentspeed);
+// }
 
-window.onload = () => {
-  fetch("/get-trains")
-    .then((res) => res.json())
-    .then((data) => {
-      const sel = document.getElementById("trainSelect");
-      sel.innerHTML = "";
-      data.Train.forEach((train) => {
-        let opt = document.createElement("option");
-        opt.text = `${train.type} - ID: ${train.id}`;
-        sel.add(opt);
-      });
-    });
-};
-
-function change_pins() {
-  let pins = document.getElementById("pins").value;
-  if (pins == "13,14") {
-    currentspeed[0][0] = 13;
-    currentspeed[0][1] = document.getElementById("speed1").value;
-    if (currentspeed[0][1] != currentspeed[1][1]) {
-      document.getElementById("speed1").value = currentspeed[1][1];
-      document.getElementById("sliders").value = currentspeed[1][1];
-      fetch("/get?pins=" + pins);
-      fetch("/get?speed1=" + currentspeed[1][1]);
-    }
-  } else {
-    currentspeed[1][0] = 22;
-    currentspeed[1][1] = document.getElementById("speed1").value;
-    if (currentspeed[1][1] != currentspeed[0][1]) {
-      document.getElementById("speed1").value = currentspeed[0][1];
-      document.getElementById("sliders").value = currentspeed[0][1];
-      fetch("/get?pins=" + pins);
-      fetch("/get?speed1=" + currentspeed[0][1]);
-    }
-  }
-  console.log(currentspeed);
-}
-
-function fetchvalue(value) {
-  console.log(value);
-  document.getElementById("reverse").value = value;
-  pins = document.getElementById("pins").value;
-  fetch("/get?pins=" + pins);
-  fetch("/get?speed1=" + value);
-  if (value > 0) {
-    document.getElementById("Train_Controll").style.backgroundColor =
-      "#00ff001f";
-  } else {
-    document.getElementById("Train_Controll").style.backgroundColor =
-      "transparent";
-  }
-}
+// function fetchvalue(value) {
+//   console.log(value);
+//   document.getElementById("reverse").value = value;
+//   pins = document.getElementById("pins").value;
+//   fetch("/get?pins=" + pins);
+//   fetch("/get?speed1=" + value);
+//   if (value > 0) {
+//     document.getElementById("Train_Controll").style.backgroundColor =
+//       "#00ff001f";
+//   } else {
+//     document.getElementById("Train_Controll").style.backgroundColor =
+//       "transparent";
+//   }
+// }
 //Slider Value to Textfield and fetch
-function setSliderValue(speed) {
-  console.log(speed);
-  document.getElementById("speed1").value = speed;
-  fetchvalue(speed);
-}
+// function setSliderValue(speed) {
+//   console.log(speed);
+//   document.getElementById("speed1").value = speed;
+//   fetchvalue(speed);
+// }
 //Emengancy Stop
-function Stop() {
-  console.log(fetch("/get?Run=0"));
-  console.log(document.getElementById("speed1").value);
-  emergancy = !emergancy;
-  if (emergancy == true) {
-    fetch("/get?speed1=" + 0);
-    document.getElementById("Run").value = "Stopp";
-    document.getElementById("Run").style.backgroundColor = "red";
-    document.getElementById("Train_Controll").style.backgroundColor =
-      "#9d15156e";
-  } else {
-    fetch("/get?speed1=" + document.getElementById("speed1").value);
-    document.getElementById("Run").value = "Ausführen";
-    document.getElementById("Run").style.backgroundColor = "green";
-    if (document.getElementById("speed1").value > 0) {
-      document.getElementById("Train_Controll").style.backgroundColor =
-        "#00ff001f";
-    } else {
-      document.getElementById("Train_Controll").style.backgroundColor =
-        "transparent";
-    }
-  }
-}
+// function Stop() {
+//   console.log(fetch("/get?Run=0"));
+//   console.log(document.getElementById("speed1").value);
+//   emergancy = !emergancy;
+//   if (emergancy == true) {
+//     fetch("/get?speed1=" + 0);
+//     document.getElementById("Run").value = "Stopp";
+//     document.getElementById("Run").style.backgroundColor = "red";
+//     document.getElementById("Train_Controll").style.backgroundColor =
+//       "#9d15156e";
+//   } else {
+//     fetch("/get?speed1=" + document.getElementById("speed1").value);
+//     document.getElementById("Run").value = "Ausführen";
+//     document.getElementById("Run").style.backgroundColor = "green";
+//     if (document.getElementById("speed1").value > 0) {
+//       document.getElementById("Train_Controll").style.backgroundColor =
+//         "#00ff001f";
+//     } else {
+//       document.getElementById("Train_Controll").style.backgroundColor =
+//         "transparent";
+//     }
+//   }
+// }
 //Direction
-function changedirection(direction) {
-  bderction = true;
+// function changedirection(direction) {
+//   bderction = true;
 
-  let pins = document.getElementById("pins").value;
-  fetch("/get?pins=" + pins);
+//   let pins = document.getElementById("pins").value;
+//   fetch("/get?pins=" + pins);
 
-  document.getElementById("speed1").value = 0;
+//   document.getElementById("speed1").value = 0;
 
-  document.getElementById("reverse").style.filter =
-    "invert(50%) sepia(10%) saturate(28%) hue-rotate(346deg) brightness(104%) contrast(97%)";
-  document.getElementById("forward").style.filter =
-    "invert(50%) sepia(10%) saturate(28%) hue-rotate(346deg) brightness(104%) contrast(97%)";
+//   document.getElementById("reverse").style.filter =
+//     "invert(50%) sepia(10%) saturate(28%) hue-rotate(346deg) brightness(104%) contrast(97%)";
+//   document.getElementById("forward").style.filter =
+//     "invert(50%) sepia(10%) saturate(28%) hue-rotate(346deg) brightness(104%) contrast(97%)";
 
-  if (direction == "reverse") {
-    bderction = false;
+//   if (direction == "reverse") {
+//     bderction = false;
 
-    document.getElementById("reverse").style.filter =
-      "invert(30%) sepia(60%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(600%)";
-    fetch("/get?reverse=" + bderction);
-  } else {
-    bderction = true;
-    document.getElementById("forward").style.filter =
-      "invert(30%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(600%)";
-    fetch("/get?forward=" + bderction);
-  }
+//     document.getElementById("reverse").style.filter =
+//       "invert(30%) sepia(60%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(600%)";
+//     fetch("/get?reverse=" + bderction);
+//   } else {
+//     bderction = true;
+//     document.getElementById("forward").style.filter =
+//       "invert(30%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(600%)";
+//     fetch("/get?forward=" + bderction);
+//   }
 
-  if ((pins = "13,14")) {
-    currentspeed[0][2] = bderction;
-  } else if ((pins = "22,21")) {
-    currentspeed[1][2] = bderction;
-  }
-  fetch("/get?direction=" + bderction);
-  fetch("/get?speed1=0");
-}
+//   if ((pins = "13,14")) {
+//     currentspeed[0][2] = bderction;
+//   } else if ((pins = "22,21")) {
+//     currentspeed[1][2] = bderction;
+//   }
+//   fetch("/get?direction=" + bderction);
+//   fetch("/get?speed1=0");
+// }
 //Max Speed for Slider and Textfield
 // TO DELETE Cause its in the custom element now
 // function getMaxSpeed() {
@@ -153,6 +153,11 @@ function changedirection(direction) {
 //       document.getElementById("trainSelect").selectedIndex
 //     ].max_speed;
 // }
+
+function add_controlls() {
+  let content = document.getElementById("content");
+  content.appendChild(document.createElement("r-controlls"));
+}
 
 function Menu(Origin) {
   let visibility = "hidden";

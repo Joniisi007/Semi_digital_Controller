@@ -129,7 +129,6 @@ void Serverinit()
   server.on("/close_icon.svg", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(LittleFS, "/close_icon.svg", "image/svg+xml"); });
 
-
   server.on("/get", HTTP_GET, [](AsyncWebServerRequest *request)
             {
               char *reverseParam = "reverse";
@@ -167,14 +166,14 @@ void Serverinit()
               }
               if (request->hasParam(directions))
               {
-                if(request->getParam(directions)->value == true)
-                {
-                  Serial.println("reverse");
-                }
-                else if((request->getParam(directions)->value == false))
-                {
-                  Serial.println("Forwards");
-                }
+                // if(request->getParam(directions)->value == true)
+                // {
+                //   Serial.println("reverse");
+                // }
+                // else if((request->getParam(directions)->value == false))
+                // {
+                //   Serial.println("Forwards");
+                // }
               }
               speedControl();
               request->send(LittleFS, "/index.html"); });
