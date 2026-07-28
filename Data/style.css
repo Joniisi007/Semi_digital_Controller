@@ -7,12 +7,24 @@ body {
 #overlay_add
 {
   display: flex;
-  background-color: rgba(255, 255, 255, 0.83);
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.63);
   z-index: 2;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   height: 100%;
   width: 100%;
 } 
+#buttons
+{
+  display: flex;
+  flex-direction: row;
+}
+#pin_input
+{
+  
+}
 input {
   padding: 7px;
   margin: 2px;

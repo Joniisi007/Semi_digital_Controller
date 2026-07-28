@@ -192,6 +192,10 @@ class controlls extends HTMLElement {
       }
     }
   }
+  add_values(value)
+  {
+    //TO Do: Auto choosing the value you tiped into the overlay
+  }
 }
 
 customElements.define("r-controlls", controlls);

@@ -12,8 +12,12 @@
   </head>
 
   <body>
-    <div id="overlay_add">
-      <input type="text" id="pin_iput"></input>
+    <div id="overlay_add" style="display: none;">
+      <input type="text" id="pin_input"></input>
+      <div id="buttons">
+        <button id="close_overlay" onclick="overlay('none')">Abbrechen</button>
+        <button id="add_overlay" onclick="add_controlls()">Hinzufügen</button>
+      </div>
     </div>
     <div id="MenuContent">
       <button id="close" onclick="Menu('div')">
@@ -39,7 +43,7 @@
       </button>
       <h1>Platten Controller</h1>
     </div>
-    <button onclick="add_controlls()" id="add">
+    <button onclick="overlay('flex')" id="add">
       Hinzufügen
       <img src="add-square-svgrepo-com.svg" height="15px" width="15px" />
     </button>
