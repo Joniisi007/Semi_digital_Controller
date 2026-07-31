@@ -22,18 +22,20 @@ class controlls extends HTMLElement {
     <div id="Train_Controll">  
     <link rel="stylesheet" href="style.css" />
       <div id="header_controlls">
-        <b>Fahrregler Gleis 1</b>
+        <b>Fahrregler Gleis</b>
          <button id="close_controlles" onclick="this.getRootNode().host.remove()">
           <img src="close_red.svg" height="25px" width="25px" />
           </button>
           </div>
-        <select name="pins" id="pins" onchange="this.getRootNode().host.change_pins()">
-          <option>22,21</option>
-          <option>13,14</option>
-        </select>
         <form action="get-trains">
           <select onchange="this.getRootNode().host.get_max_speed()" name="trainSelect" id="trainSelect">
             <option>Lade...</option>
+          </select>
+        </form>
+        <form action="get">
+          <select name="pins" id="pins" onchange="this.getRootNode().host.change_pins()">
+            <option>22,21</option>
+            <option>13,14</option>
           </select>
         </form>
         <form action="get" id="get">
@@ -58,6 +60,7 @@ class controlls extends HTMLElement {
   async connectedCallback() {
     this.render();
     try {
+      this.shadowRoot.querySelector("#pins").value = document.getElementById("pin_input").value;
       fetch("/get-trains")
         .then((res) => res.json())
         .then((data) => {
@@ -194,7 +197,7 @@ class controlls extends HTMLElement {
   }
   add_values(value)
   {
-    //TO Do: Auto choosing the value you tiped into the overlay
+    this.shadowRoot.querySelector("#speed1").value = value;
   }
 }
 

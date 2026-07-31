@@ -156,10 +156,8 @@ let slider = document.getElementById("sliders");
 
 function add_controlls() {
   let content = document.getElementById("content");
-  let test = new controlls;
   content.appendChild(document.createElement("r-controlls"));
   document.getElementById("overlay_add").style.display = "none";
-  test.add_values(document.getElementById("pin_input").value);
 }
 function overlay(display)
 {

@@ -109,7 +109,7 @@ input {
 #get {
   display: flex;
   flex-direction: column;
-  padding-top: 160px;
+  padding-top: 120px;
 }
 #controlls {
   margin-top: 145px;
