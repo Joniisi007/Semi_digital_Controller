@@ -61,6 +61,7 @@ class controlls extends HTMLElement {
     this.render();
     try {
       this.shadowRoot.querySelector("#pins").value = document.getElementById("pin_input").value;
+      this.trainValues.pins = document.getElementById("pin_input").value;
       fetch("/get-trains")
         .then((res) => res.json())
         .then((data) => {
@@ -109,6 +110,7 @@ class controlls extends HTMLElement {
     let pins = this.shadowRoot.querySelector("#pins").value;
     this.trainValues.pins = pins;
     // fetch("/get?pins=" + pins);
+    this.trainValues.speed = value;
     fetch("/get?speed1=" + value);
     if (value > 0) {
       this.shadowRoot.querySelector("#Train_Controll").style.backgroundColor =
@@ -136,6 +138,8 @@ class controlls extends HTMLElement {
       maxSpeed.Train[
         this.shadowRoot.querySelector("#trainSelect").selectedIndex
       ].max_speed;
+
+      this.trainValues.Train = this.shadowRoot.querySelector("#trainSelect").selectedIndex;
   }
   changedirection(direction) {
     let bderction = true;
