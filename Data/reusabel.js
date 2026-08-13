@@ -60,7 +60,8 @@ class controlls extends HTMLElement {
   async connectedCallback() {
     this.render();
     try {
-      this.shadowRoot.querySelector("#pins").value = document.getElementById("pin_input").value;
+      this.shadowRoot.querySelector("#pins").value =
+        document.getElementById("pin_input").value;
       this.trainValues.pins = document.getElementById("pin_input").value;
       fetch("/get-trains")
         .then((res) => res.json())
@@ -139,7 +140,8 @@ class controlls extends HTMLElement {
         this.shadowRoot.querySelector("#trainSelect").selectedIndex
       ].max_speed;
 
-      this.trainValues.Train = this.shadowRoot.querySelector("#trainSelect").selectedIndex;
+    this.trainValues.Train =
+      this.shadowRoot.querySelector("#trainSelect").selectedIndex;
   }
   changedirection(direction) {
     let bderction = true;
@@ -199,10 +201,43 @@ class controlls extends HTMLElement {
       }
     }
   }
-  add_values(value)
-  {
+  add_values(value) {
     this.shadowRoot.querySelector("#speed1").value = value;
   }
 }
+class menu extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+  }
 
+  connectedCallback() {
+    this.render();
+  }
+
+  render() {
+    this.shadowRoot.innerHTML = `
+      <link rel="stylesheet" href="menustyle.css" />
+          <div id="MenuContent">
+      <button id="close" onclick="Menu('div')">
+        <img src="close_icon.svg" height="25px" width="25px" />
+      </button>
+      <form action="/">
+        <button class="call_site">
+          Home1
+          <img src="arrow_right.svg" height="20px" width="20px" />
+        </button>
+      </form>
+      <div id="devider"></div>
+      <form action="Trains.html">
+        <button class="call_site">
+          Züge bearbeiten
+          <img src="arrow_right.svg" height="20px" width="20px" />
+        </button>
+      </form>
+    </div>
+      `;
+  }
+}
 customElements.define("r-controlls", controlls);
+customElements.define("r-menu", menu);

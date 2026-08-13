@@ -159,8 +159,7 @@ function add_controlls() {
   content.appendChild(document.createElement("r-controlls"));
   document.getElementById("overlay_add").style.display = "none";
 }
-function overlay(display)
-{
+function overlay(display) {
   document.getElementById("overlay_add").style.display = display;
 }
 
@@ -175,8 +174,8 @@ function Menu(Origin) {
     visibility = "hidden";
     display = "none";
   }
-  document.getElementById("MenuContent").style.visibility = visibility;
-  document.getElementById("MenuContent").style.display = display;
+  document.getElementById("menu").style.visibility = visibility;
+  document.getElementById("menu").style.display = display;
 }
 
 //Train.HTML
