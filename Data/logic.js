@@ -1,14 +1,6 @@
 let emergancy = false;
 let run = false;
-//test
 let maxSpeed;
-
-// let Train_values = {
-//   Train = 0,
-//   speed = 0,
-//   directione = false      // false = forwarde / true = backwards
-// };
-
 let currentspeed = [
   [0, 0.0, false],
   [0, 0.0, false],

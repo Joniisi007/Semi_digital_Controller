@@ -6,9 +6,9 @@ class controlls extends HTMLElement {
     this.attachShadow({ mode: "open" });
   }
 
-  connectedCallback() {
-    this.render();
-  }
+  // connectedCallback() {
+  //   this.render();
+  // }
 
   trainValues = {
     pins: "",
@@ -211,32 +211,45 @@ class menu extends HTMLElement {
     this.attachShadow({ mode: "open" });
   }
 
-  connectedCallback() {
-    this.render();
-  }
-
   render() {
     this.shadowRoot.innerHTML = `
       <link rel="stylesheet" href="menustyle.css" />
-          <div id="MenuContent">
-      <button id="close" onclick="Menu('div')">
-        <img src="close_icon.svg" height="25px" width="25px" />
-      </button>
-      <form action="/">
-        <button class="call_site">
-          Home1
-          <img src="arrow_right.svg" height="20px" width="20px" />
-        </button>
-      </form>
-      <div id="devider"></div>
-      <form action="Trains.html">
-        <button class="call_site">
-          Züge bearbeiten
-          <img src="arrow_right.svg" height="20px" width="20px" />
-        </button>
-      </form>
-    </div>
+      <div id="OverlayMenu" onclick="Menu('div')">  
+        <div id="MenuContent">
+          <button id="close" onclick="Menu('div')">
+            <img src="close_icon.svg" height="25px" width="25px" />
+          </button>
+          <form action="/">
+            <button class="call_site">
+              Home
+              <img src="arrow_right.svg" height="20px" width="20px" />
+            </button>
+          </form>
+          <div id="devider"></div>
+          <form action="Trains.html">
+            <button class="call_site">
+              Züge bearbeiten
+              <img src="arrow_right.svg" height="20px" width="20px" />
+            </button>
+          </form>
+        </div>
+      </div>
       `;
+  }
+
+  async connectedCallback() {
+    this.render();
+    // try {
+    //   if (window.innerWidth > 950) {
+    //     document.getElementById("menu").style.visibility = "visible;";
+    //     document.getElementById("menu").style.display = "grid";
+    //   } else if (window.innerWidth <= 950) {
+    //     document.getElementById("menu").style.visibility = "hidden";
+    //     document.getElementById("menu").style.display = "none";
+    //   }
+    // } catch (error) {
+    //   console.error("Error rendering menu:", error);
+    // }
   }
 }
 customElements.define("r-controlls", controlls);
