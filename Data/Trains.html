@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="de">
 <script src="logic.js"></script>
+<script src="reusabel.js"></script>
 <link rel="stylesheet" href="trainlist_style.css">
 
 
@@ -9,6 +10,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <div id="Header">
+    <r-menu id="menu"></r-menu>
     <button type="button" onclick="Menu('button')" id="Menu" name="menu">
       <img src="menuIcon.svg" height="20px" width="20px">
     </button>
@@ -18,23 +20,6 @@
 </head>
 
 <body>
- <div id="MenuContent">
-      <button id="close" onclick="Menu('div')">
-        <img src="close_icon.svg" height="25px" width="25px">
-      </button>
-    <form action="/" >
-      <button class="call_site">
-        Home
-        <img src="arrow_right.svg" height="20px" width="20px"> 
-      </button>
-    </form>
-    <div id="devider"></div>
-    <form action="Trains.html">
-      <button class="call_site">Züge bearbeiten
-          <img src="arrow_right.svg" height="20px" width="20px">
-      </button>
-    </form>
-  </div>
     <div id="Error">
     <b id="ErrorText">Diese Seite ist auf Querformat ausgerichtet. </b>
     <b id="ErrorText">Bitte drehen Sie Ihr Gerät.</b>

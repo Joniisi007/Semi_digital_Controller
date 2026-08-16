@@ -222,14 +222,14 @@ class menu extends HTMLElement {
           <form action="/">
             <button class="call_site">
               Home
-              <img src="arrow_right.svg" height="20px" width="20px" />
+              <img src="arrow_right.svg" id="arrow" height="20px" width="20px" />
             </button>
           </form>
           <div id="devider"></div>
           <form action="Trains.html">
             <button class="call_site">
               Züge bearbeiten
-              <img src="arrow_right.svg" height="20px" width="20px" />
+              <img src="arrow_right.svg" id="arrow" height="20px" width="20px" />
             </button>
           </form>
         </div>
@@ -239,17 +239,17 @@ class menu extends HTMLElement {
 
   async connectedCallback() {
     this.render();
-    // try {
-    //   if (window.innerWidth > 950) {
-    //     document.getElementById("menu").style.visibility = "visible;";
-    //     document.getElementById("menu").style.display = "grid";
-    //   } else if (window.innerWidth <= 950) {
-    //     document.getElementById("menu").style.visibility = "hidden";
-    //     document.getElementById("menu").style.display = "none";
-    //   }
-    // } catch (error) {
-    //   console.error("Error rendering menu:", error);
-    // }
+    try {
+      if (window.innerWidth > 950) {
+        document.getElementById("menu").style.visibility = "visible;";
+        document.getElementById("menu").style.display = "grid";
+      } else if (window.innerWidth <= 950) {
+        document.getElementById("menu").style.visibility = "hidden";
+        document.getElementById("menu").style.display = "none";
+      }
+    } catch (error) {
+      console.error("Error rendering menu:", error);
+    }
   }
 }
 customElements.define("r-controlls", controlls);

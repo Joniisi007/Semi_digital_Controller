@@ -11,18 +11,23 @@
   width: 100%;
 }
 
+#devider {
+  visibility: hidden;
+}
+#arrow {
+  display: none;
+  visibility: hidden;
+}
 .call_site {
-  width: 90%;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  margin-top: 10px;
+  margin-top: 0px;
   border: 0;
 
   text-align: start;
-  font-size: 30px;
+  font-size: 20px;
 
   background: transparent;
 }
@@ -62,6 +67,7 @@
     z-index: 2;
   }
   #devider {
+    visibility: visible;
     width: 95%;
     border-bottom: 2px solid black;
     border-radius: 1px;
@@ -74,5 +80,15 @@
     margin-right: 12px;
     margin-left: 4px;
     border: 0;
+  }
+  #arrow {
+    display: flex;
+    visibility: visible;
+  }
+  .call_site {
+    width: 90%;
+    margin-top: 10px;
+    text-align: start;
+    font-size: 30px;
   }
 }
