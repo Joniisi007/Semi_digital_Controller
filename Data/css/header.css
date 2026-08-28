@@ -1,0 +1,77 @@
+#MenuButton {
+  display: none;
+}
+#Header {
+  display: flex;
+  grid-template-columns: repeat();
+  background-color: gray;
+  padding: 3px;
+}
+#HeaderMenu {
+  display: flex;
+  flex-direction: column-reverse;
+}
+#menu {
+  display: grid;
+  visibility: visible;
+}
+
+@media (max-width: 950px) {
+  #Header {
+    display: flex;
+    flex-direction: center;
+    grid-template-columns: repeat();
+    background-color: gray;
+    padding: 5px;
+    padding-left: 0;
+    padding-right: 0;
+    /* width: 95%; */
+  }
+  #HeaderMenu {
+    flex-direction: column;
+  }
+  #menu {
+    display: none;
+    visibility: hidden;
+  }
+  #MenuButton {
+    display: flex;
+    size: 0%;
+    margin-top: 4px;
+    height: 26px;
+    width: 29px;
+    align-content: center;
+    align-self: center;
+    margin-right: 12px;
+    margin-left: 4px;
+    border: 0;
+    background-color: transparent;
+  }
+  #devider {
+    width: 95%;
+    border-bottom: 2px solid black;
+    border-radius: 1px;
+  }
+}
+
+@media screen and (orientation: portrait) and (max-width: 600px) {
+  #Header {
+    display: flex;
+    flex-direction: center;
+    grid-template-columns: repeat();
+    background-color: gray;
+    padding: 5px;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+  #Menu {
+    size: 0%;
+    margin-top: 0px;
+    height: 45px;
+    width: 45px;
+    margin-right: 12px;
+    margin-left: 4px;
+    border: 0;
+  }
+}

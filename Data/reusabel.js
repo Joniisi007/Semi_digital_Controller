@@ -20,11 +20,11 @@ class controlls extends HTMLElement {
     this.shadowRoot.innerHTML = `
     
     <div id="Train_Controll">  
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
       <div id="header_controlls">
         <b>Fahrregler Gleis</b>
          <button id="close_controlles" onclick="this.getRootNode().host.remove()">
-          <img src="close_red.svg" height="25px" width="25px" />
+          <img src="Images/close_red.svg" height="25px" width="25px" />
           </button>
           </div>
         <form action="get-trains">
@@ -44,10 +44,10 @@ class controlls extends HTMLElement {
           <input name="speed1" id="speed1" onchange="this.getRootNode().host.fetchvalue(this.value)" type="number" step=".01" min="0" max="213" value="0"></input>
           <div id="direction">
             <button type="button" name="reverse" id="reverse" onclick="this.getRootNode().host.changedirection('reverse')">
-              <img id="reverse_icon" src="reverse_icon.svg" height="20px" width="20px">
+              <img id="reverse_icon" src="Images/reverse_icon.svg" height="20px" width="20px">
             </button>
             <button type="button" name="forward" id="forward" onclick="this.getRootNode().host.changedirection('forward')" >
-              <img id="forward_icon" src="forward_icon.svg" height="20px" width="20px">
+              <img id="forward_icon" src="Images/forward_icon.svg" height="20px" width="20px">
             </button>
           <div id="direction"></div>
         </div>
@@ -213,27 +213,27 @@ class menu extends HTMLElement {
 
   render() {
     this.shadowRoot.innerHTML = `
-      <link rel="stylesheet" href="menustyle.css" />
+      <link rel="stylesheet" href="css/menustyle.css" />
       <div id="OverlayMenu" onclick="Menu('div')">  
+      </div>
         <div id="MenuContent">
           <button id="close" onclick="Menu('div')">
-            <img src="close_icon.svg" height="25px" width="25px" />
+            <img src="Images/close_icon.svg" height="25px" width="25px" />
           </button>
-          <form action="/">
+          <form action="index.html">
             <button class="call_site">
               Home
-              <img src="arrow_right.svg" id="arrow" height="20px" width="20px" />
+              <img src="Images/arrow_right.svg" id="arrow" height="20px" width="20px" />
             </button>
           </form>
           <div id="devider"></div>
           <form action="Trains.html">
             <button class="call_site">
               Züge bearbeiten
-              <img src="arrow_right.svg" id="arrow" height="20px" width="20px" />
+              <img src="Images/arrow_right.svg" id="arrow" height="20px" width="20px" />
             </button>
           </form>
         </div>
-      </div>
       `;
   }
 

@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  
+
   size: 15%;
 }
 #edit {
@@ -62,35 +62,11 @@ body {
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.7);
 }
-#Header {
-  display: flex;
-  flex-direction: space-between;
-  grid-template-columns: repeat();
-  background-color: gray;
-}
+
 #content {
   display: flex;
 }
-#MenuContent {
-  visibility: hidden;
-  display: flex;
-  align-content: start;
-  position: fixed;
-  background-color: rgb(0, 130, 74);
-  width: 6%;
-  z-index: 2;
-  height: 100%;
-  width: fit-content;
-}
-#Menu {
-  size: 0%;
-  margin-top: 0.5%;
-  height: 2%;
-  width: 2%;
-  align-content: center;
-  border: none;
-  background-color: transparent;
-}
+
 h1 {
   margin-top: 0;
   margin-bottom: 0;
@@ -172,35 +148,6 @@ td {
 }
 /* Phone  && Horizontal */
 @media (orientation: landscape) and (min-width: 800px) {
-  #MenuContent {
-    visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    background-color: rgb(0, 130, 74);
-    padding-bottom: 15px;
-    padding-top: 5%;
-    height: fit-content;
-    width: 100%;
-    touch-action: none;
-  }
-  #devider {
-    width: 96%;
-    border-bottom: 2px solid black;
-    border-radius: 1px;
-    margin-left: 6px;
-  }
-  #Menu {
-    size: 0%;
-    align-self: center;
-    margin-top: 0px;
-    height: 45px;
-    width: 45px;
-    align-content: center;
-    margin-right: 12px;
-    margin-left: 4px;
-    border: 0;
-  }
   #close {
     background: transparent;
     border: none;
@@ -269,25 +216,6 @@ td {
 
 /* Phone  && Vertical */
 @media screen and (orientation: portrait) and (max-width: 600px) {
-  #Header {
-    display: flex;
-    flex-direction: center;
-    grid-template-columns: repeat();
-    background-color: gray;
-    padding: 5px;
-    padding-left: 0;
-    padding-right: 0;
-    width: 100%;
-  }
-  #Menu {
-    size: 0%;
-    margin-top: 0px;
-    height: 45px;
-    width: 45px;
-    margin-right: 12px;
-    margin-left: 4px;
-    border: 0;
-  }
   #content {
     visibility: hidden;
     display: none;

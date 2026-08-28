@@ -6,7 +6,7 @@
 #include <WiFi.h>              //Einbinden der WiFi-Bibliothek
 #include <ESPAsyncWebServer.h> //Einbinden der Webserver-Bibliothek
 #include <LittleFS.h>
-#include <Wire.h> // Wire Bibliothek für I2C-Display
+#include <Wire.h>
 #include <SD_MMC.h>
 #include "SPI.h"
 
@@ -293,7 +293,7 @@ void setup()
     Serial.println("An Error has occurred while mounting LittleFS!");
   }
 
-  File file = LittleFS.open("/config.json", FILE_READ);
+  File file = LittleFS.open("configs/config.json", FILE_READ);
   DynamicJsonDocument doc(2048);
   DeserializationError error = deserializeJson(doc, file);
   file.close();

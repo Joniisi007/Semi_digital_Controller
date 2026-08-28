@@ -2,24 +2,26 @@
 <html lang="de">
 <script src="logic.js"></script>
 <script src="reusabel.js"></script>
-<link rel="stylesheet" href="trainlist_style.css">
-
+<link rel="stylesheet" href="css/trainlist_style.css">
+<link rel="stylesheet" href="css/header.css">
 
 <head>
-  <link rel="icon" type="image/x-icon" href="/train_icon.png" />
+  <link rel="icon" type="image/x-icon" href="Images/train-svgrepo-com.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <div id="Header">
-    <r-menu id="menu"></r-menu>
-    <button type="button" onclick="Menu('button')" id="Menu" name="menu">
-      <img src="menuIcon.svg" height="20px" width="20px">
-    </button>
-    <h1>Platten Kontroller</h1>
-  </div>
   <title>Zugliste bearbeiten</title>
 </head>
 
 <body>
+    <div id="HeaderMenu">
+        <r-menu id="menu"></r-menu>
+        <div id="Header">
+          <button type="button" onclick="Menu('button')" id="MenuButton" name="menu">
+          <img src="Images/menuIcon.svg" height="20px" width="20px" />
+        </button>
+        <h1>Platten Controller</h1>
+      </div>
+    </div>
     <div id="Error">
     <b id="ErrorText">Diese Seite ist auf Querformat ausgerichtet. </b>
     <b id="ErrorText">Bitte drehen Sie Ihr Gerät.</b>
@@ -42,7 +44,8 @@
       <input type="checkbox" name="isAdd" id="isAdd" style="display: none;" checked=""></input>
     </form>
   </div>
-  <div id="content" onclick="Menu('div')">
+  <!-- <div id="content" onclick="Menu('div')"> -->
+  <div id="content">
   <div id="Table">
     <script>
       populateTrainList();
