@@ -98,28 +98,37 @@ void Serverinit()
 {
 
   // Die Antworten des Servers definieren
+  // HTML
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(LittleFS, "/index.html", String(), false); });
   server.on("/Trains.html", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(LittleFS, "/Trains.html", String(), false); });
 
+  // Stylesheets
   server.on("/style.css", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(LittleFS, "/style.css"); });
 
   server.on("/trainlist_style.css", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(LittleFS, "/trainlist_style.css"); });
 
+  server.on("/header.css", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/header.css"); });
+
+  server.on("/menustyle.css", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/menustyle.css"); });
+
+  // logics
   server.on("/logic.js", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(LittleFS, "/logic.js"); });
 
-  server.on("/train_icon.png", HTTP_GET, [](AsyncWebServerRequest *request)
-            { request->send(LittleFS, "/train_icon.png"); });
+  server.on("/reusable.js", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/reusable.js"); });
 
+  // Images
+  server.on("/train-svgrepo-com.png", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/train-svgrepo-com.png"); });
   server.on("/menuIcon.svg", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(LittleFS, "/menuIcon.svg", "image/svg+xml"); });
-
-  server.on("/reverse_icon.svg", HTTP_GET, [](AsyncWebServerRequest *request)
-            { request->send(LittleFS, "/reverse_icon.svg", "image/svg+xml"); });
   server.on("/reverse_icon.svg", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(LittleFS, "/reverse_icon.svg", "image/svg+xml"); });
   server.on("/forward_icon.svg", HTTP_GET, [](AsyncWebServerRequest *request)
@@ -128,6 +137,10 @@ void Serverinit()
             { request->send(LittleFS, "/arrow_right.svg", "image/svg+xml"); });
   server.on("/close_icon.svg", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(LittleFS, "/close_icon.svg", "image/svg+xml"); });
+  server.on("/close_red.svg", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/close_red.svg", "image/svg+xml"); });
+  server.on("/add-square-svgrepo-com.svg", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/add-square-svgrepo-com.svg", "image/svg+xml"); });
 
   server.on("/get", HTTP_GET, [](AsyncWebServerRequest *request)
             {
